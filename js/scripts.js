@@ -55,28 +55,22 @@ List.prototype.addCamper = function (camper) {
 // Default Lists
 var baseList = ["Sleeping pad with inflation device if necessey", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kid", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
 
-var summerList = new List("summerList");
-summerList.listItems = ["3 Season Tent", "35° Sleeping bag", "Sunshade Tarp", "Sunscreen", "Microfiber towel", "Insect Repellent", "Matches and Firestarters"];
+var summerList = ["3 Season Tent", "35° Sleeping bag", "Sunshade Tarp", "Sunscreen", "Microfiber towel", "Insect Repellent", "Matches and Firestarters"];
 
-var fallList = new List("fallList");
-fallList.listItems = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sunscreen", "Waterproof matches and firestarters", "Tarp"]
+var fallList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sunscreen", "Waterproof matches and firestarters", "Tarp"]
 
-var springList = new List("springList");
-springList.listItems = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sleeping bag liner", "Insect Repellent", "Rainfly", "Dry bags or ziplocks", "Rainwear", "Waterproof matches and firestarters"]
+var springList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sleeping bag liner", "Insect Repellent", "Rainfly", "Dry bags or ziplocks", "Rainwear", "Waterproof matches and firestarters"]
 
-var winterList = new List("winterList");
-winterList.listItems = ["Four season tent with footprint", "-30° to 20° Sleeping bag", "Sleeping bag liner", "Dry bags", "Snow shovel", "Waterproof matches and firestatrers", "Tarp"]
+var winterList = ["Four season tent with footprint", "-30° to 20° Sleeping bag", "Sleeping bag liner", "Dry bags", "Snow shovel", "Waterproof matches and firestatrers", "Tarp"]
 
-var forestList = new List("forestList");
-forestList.listItems =["Bear canister", "Rope", "Bear mace"]
+var forestList = ["Bear canister", "Rope", "Bear mace"]
 
-var desertList = new List("desertList");
-desertList.listItems =["Extra water", "Bandana"]
+var desertList = ["Extra water", "Bandana"]
 
-var mountainList = new List("mountainList");
-mountainList.listItems =["Bear canister", "Rope", "Bear mace", "Trekking poles"]
+var mountainList = ["Bear canister", "Rope", "Bear mace", "Trekking poles"]
 
 var riverList = ["Bear canister", "Rope", "Bear mace"];
+
 
 var defaultLists = [baseList, summerList, fallList, springList, winterList, forestList, desertList, mountainList, riverList];
 
@@ -89,9 +83,25 @@ function createList(array, listName) {
   return newList;
 }
 
+var springList = createList(springList, "springList");
+var fallList = createList(fallList, "fallList");
+var summerList = createList(summerList, "summerList");
+var winterList = createList(winterList, "winterList");
+var forestList = createList(forestList, "forestList");
+var desertList = createList(desertList, "desertList");
+var mountainList = createList(mountainList, "mountainList");
 var riverList = createList(riverList, "riverList");
 var baseList = createList(baseList, "baseList");
+var defaults = createList(defaultLists, "defaultLists");
+console.log(defaults);
 
+user.addList(springList);
+user.addList(fallList);
+user.addList(summerList);
+user.addList(winterList);
+user.addList(forestList);
+user.addList(desertList);
+user.addList(mountainList);
 user.addList(riverList);
 user.addList(baseList);
 console.log(user);
