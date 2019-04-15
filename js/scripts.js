@@ -125,7 +125,16 @@ function buildUserList(seasonInput, terrainInput){
       };
     };
   });
+  console.log(userGenerated);
+ var one = userGenerated[0].listItems;
+ var two = userGenerated[1].listItems;
+ console.log(one,two);
+ var merged = $.merge(one,two);
+ // var mergeConcat = one.concat(two);
+  console.log(merged);
 }
+//create a function that displays merged list in a checkbox form for user selection
+//push that selection to user
 
 //Helper functions ------//
 //attachEventListeners will control button clicks
@@ -139,10 +148,11 @@ function attachEventListeners() {
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
     console.log(terrainSelected, seasonSelected);
-    console.log(defaultLists);
-    console.log(userGenerated);
+    // console.log(defaultLists);
+    // console.log(userGenerated);
   });
 }
+
 
 //Document.ready start
 $(document).ready(function(){
