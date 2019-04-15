@@ -34,7 +34,7 @@ function List(listName) {
   this.currentItemId,
   this.campers = [],
   this.currentCamperId,
-  this.listItems = [],
+  this.listItems = []
 }
 
 // List Example
@@ -91,7 +91,20 @@ function Camper(camperName) {
   this.camperEmail = ""
 }
 
+//Helper functions ------//
+//attachEventListeners will control button clicks
+function attachEventListeners() {
+  $("#listMaker").on("click", function(event) {
+    var listName = $("#listName").val();
+    var seasonSelected = $("#season").val();
+    var terrainSelected = $("#terrain").val();
+    $("#userListName").text(listName);
+    $("#userSeasonSelected").text(seasonSelected);
+    $("#userTerrainSelected").text(terrainSelected);
+  });
+}
+
 //Document.ready start
 $(document).ready(function(){
-
+  attachEventListeners();
 })//end document.ready
