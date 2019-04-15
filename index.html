@@ -14,37 +14,38 @@
       <div class="form-group">
         <label for="season">Season</label>
         <select class="form-control" id="season" >
-          <option>Winter</option>
-          <option>Spring</option>
-          <option>Summer</option>
-          <option>Autumn</option>
+          <option value="Winter">Winter</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Autumn">Autumn</option>
         </select>
       </div>
       <div class="form-group">
         <label for="terrain">Terrain Type</label>
         <select class="form-control" id="terrain">
-          <option>Mountain</option>
-          <option>Desert</option>
-          <option>Forest</option>
-          <option>River</option>
+          <option value="Mountain">Mountain</option>
+          <option value="Desert">Desert</option>
+          <option value="Forest">Forest</option>
+          <option value="River">River</option>
         </select>
       </div>
       <div class="form-group">
         <label for="listName">List Name</label>
-        <input type="email" class="form-control" id="listName" placeholder="Enter a name for your list">
+        <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
       </div>
-      <button type="click" name="button" id="listMaker">Show Me My List!</button>
+      <button type="button" name="button" id="listMaker">Show Me My List!</button>
     </form>
 
     <div class="customList">
-      <h4>Here is your __list title__:</h4>
-      __(season)__ selection:
+      <h4>Here is your list!</h4>
+      <span id="userListName"></span>:
+      <span id="userSeasonSelected"></span>
       <ul>
         <li>Item One</li>
         <li>Item Two</li>
       </ul>
       <br>
-      __(terrain)__ selection:
+      <span id="userTerrainSelected"></span>
       <ul>
         <li>Item One</li>
         <li>Item Two</li>
