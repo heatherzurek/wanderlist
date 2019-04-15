@@ -104,7 +104,24 @@ function attachEventListeners() {
   });
 }
 
+//will loop through selected items and push selected list items to new list ---//
+function printSelectedItems(list) {
+  var selectedItems = [];
+  $("#selectedItemsList").click(function (event) {
+    $("input[name='prePopList']:checked").each(function() {
+      selectedItems.push($(this).val());
+  });
+  // $("#selectedItemsList").on("click", function(event) {
+  //   $("input[name='prePopList']:checked").each(function() {
+  //     selectedItems.push($(this).val());
+  // });
+});
+  $(".customList").append(selectedItems + "<br>");
+  console.log(selectedItems);
+}
+
 //Document.ready start
 $(document).ready(function(){
   attachEventListeners();
+  printSelectedItems();
 })//end document.ready
