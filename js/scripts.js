@@ -52,27 +52,20 @@ List.prototype.addCamper = function (camper) {
   this.campers.push(camper);
 };
 
-// Default Lists
+function DefaultList() {
+  this.defaultList = [];
+}
+
+// Create Default Lists
 var baseList = ["Sleeping pad with inflation device if necessey", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kid", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
-
 var summerList = ["3 Season Tent", "35° Sleeping bag", "Sunshade Tarp", "Sunscreen", "Microfiber towel", "Insect Repellent", "Matches and Firestarters"];
-
 var fallList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sunscreen", "Waterproof matches and firestarters", "Tarp"]
-
 var springList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sleeping bag liner", "Insect Repellent", "Rainfly", "Dry bags or ziplocks", "Rainwear", "Waterproof matches and firestarters"]
-
 var winterList = ["Four season tent with footprint", "-30° to 20° Sleeping bag", "Sleeping bag liner", "Dry bags", "Snow shovel", "Waterproof matches and firestatrers", "Tarp"]
-
 var forestList = ["Bear canister", "Rope", "Bear mace"]
-
 var desertList = ["Extra water", "Bandana"]
-
 var mountainList = ["Bear canister", "Rope", "Bear mace", "Trekking poles"]
-
 var riverList = ["Bear canister", "Rope", "Bear mace"];
-
-
-var defaultLists = [baseList, summerList, fallList, springList, winterList, forestList, desertList, mountainList, riverList];
 
 function createList(array, listName) {
   var newList = new List(listName);
@@ -92,8 +85,11 @@ var desertList = createList(desertList, "desertList");
 var mountainList = createList(mountainList, "mountainList");
 var riverList = createList(riverList, "riverList");
 var baseList = createList(baseList, "baseList");
-var defaults = createList(defaultLists, "defaultLists");
-console.log(defaults);
+
+var defaultLists = [baseList, summerList, fallList, springList, winterList, forestList, desertList, mountainList, riverList];
+
+// var defaults = createList(defaultLists, "defaultLists");
+// console.log(defaults);
 
 user.addList(springList);
 user.addList(fallList);
@@ -119,6 +115,18 @@ function Camper(camperName) {
   this.camperEmail = ""
 }
 
+var userGenerated = [];
+function buildUserList(seasonInput, terrainInput){
+  let inputArray = [seasonInput, terrainInput];
+  inputArray.forEach(function(input){
+    for(i=0;i<defaultLists.length;i++){
+      if(defaultLists[i].listName === input){
+        userGenerated.push(defaultLists[i]);
+      };
+    };
+  });
+}
+
 //Helper functions ------//
 //attachEventListeners will control button clicks
 function attachEventListeners() {
@@ -126,9 +134,13 @@ function attachEventListeners() {
     var listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
+    buildUserList(seasonSelected, terrainSelected);
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
+    console.log(terrainSelected, seasonSelected);
+    console.log(defaultLists);
+    console.log(userGenerated);
   });
 }
 
