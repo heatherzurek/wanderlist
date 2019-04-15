@@ -127,6 +127,20 @@ function buildUserList(seasonInput, terrainInput){
   });
 }
 
+List.prototype.displayCheckBox = function () {
+  var html ="";
+  this.listItems.forEach(function(listItem){
+    html += "<input type='checkbox' name='userList' id='" + listItem.itemId + "'<label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label>";
+  });
+  console.log(html);
+  $('output').append(html);
+  return html;
+};
+
+// springList.displayCheckBox();
+// $('output').append(springList.displayCheckBox);
+
+
 //Helper functions ------//
 //attachEventListeners will control button clicks
 function attachEventListeners() {
@@ -142,10 +156,24 @@ function attachEventListeners() {
     console.log(defaultLists);
     console.log(userGenerated);
   });
-}
+  //will loop through selected items and push selected list items to new list ---//
+
+    //push selected list items into new array and push to user
+    $("#selectedItemsList").click(function (event) {
+      event.preventDefault();
+      console.log("clicked");
+      var selectedItems = [];
+      $("input[name='prePopList']:checked").each(function() {
+        selectedItems.push($(this).val());
+        });
+        console.log(selectedItems);
+        return selectedItems;
+      });
+}// end attachEventListeners
+
 
 //Document.ready start
 $(document).ready(function(){
   attachEventListeners();
-  // console.log(baseList);
+  springList.displayCheckBox();
 })//end document.ready
