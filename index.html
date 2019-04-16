@@ -2,15 +2,29 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- <script src="js/bootstrap.js"></script> -->
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/objects.js"></script>
     <script src="js/scripts.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <title>wanderlist</title>
   </head>
   <body>
+    <div class="main-div">
+      <input type="email" placeholder="Email..."/>
+      <input type="password" placeholder="Password..." />
+
+      <button type="button">Login to Account</button>
+    </div>
+    <!-- add firebase user auth -->
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader"> </div>
+
     <form id="lists">
       <div class="form-group">
         <label for="season">Season</label>
@@ -38,30 +52,21 @@
     </form>
 
     <div class="customList">
-      <form class="prePopLists">
       <h4>Here is your WanderList!</h4>
       <h5><span id="userListName"></span></h5>
-      <br>
-      <span id="userSeasonSelected"></span>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="checkbox" name="prePopList" value="Item One">Item One<span id=""></span>
-        </label>
-      </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <input type="checkbox" name="prePopList" value="Item Two"><span id="">Item Two</span>
-      </label>
-      </div>
-      <button type="button" name="button" id="selectedItemsList">Save My Lists</button>
-      </form>
+      <output id="seasonAndTerrainList">
+      </output>
+      <button type="button" name="button" id="selectedItemsList">Save My List</button>
     </div>
 
-    <!-- add extra items form -->
-    <!-- <li><input class="form-control form-control-sm" type="text" placeholder="Additional item"></li> -->
-    <output>
-
-    </output>
+    <div>
+      <form id="personalItems">
+        <span id="userPopList"></span>
+      <label for="addPersonalItem">Add items to list</label>
+      <input type="text" id="addPersonalItem">
+      <button type="submit" id="addItemButton">Add</button>
+      </form>
+    </div>
 
   </body>
 </html>
