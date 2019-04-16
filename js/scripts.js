@@ -38,6 +38,7 @@ function displayCheckBoxList(listItemArray) {
 //Helper functions ------//
 //attachEventListeners will control button clicks
 function attachEventListeners() {
+  var listItemArray = [];
   $("#listMaker").on("click", function(event) {
     var listName = $("#listName").val();
     var seasonSelected = $("#season").val();
@@ -46,7 +47,8 @@ function attachEventListeners() {
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
-    displayCheckBoxList(buildCheckBoxList(seasonSelected, terrainSelected));
+    listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
+    displayCheckBoxList(listItemArray);
   });
 
   //will loop through selected items and push selected list items to new list ---//
@@ -54,13 +56,13 @@ function attachEventListeners() {
   //push selected list items into new array and push to user
   $("#selectedItemsList").click(function (event) {
     event.preventDefault();
-    console.log("clicked");
-    var selectedItems = [];
-    $("input[name='prePopList']:checked").each(function() {
-      selectedItems.push($(this).val());
+    var selectedItemIds = [];
+    $("input[name='userList']:checked").each(function() {
+      selectedItemIds.push(this.id);
+      console.log(this);
       });
-      console.log(selectedItems);
-      return selectedItems;
+      console.log(selectedItemIds);
+      return selectedItemIds;
     });
 }// end attachEventListeners
 
