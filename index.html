@@ -2,6 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- <script src="js/bootstrap.js"></script> -->
@@ -12,6 +15,10 @@
     <title>wanderlist</title>
   </head>
   <body>
+    <!-- add firebase user auth -->
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader"> </div>
+
     <form id="lists">
       <div class="form-group">
         <label for="season">Season</label>
@@ -63,6 +70,12 @@
     <output>
 
     </output>
+
+    <form id="personalItems">
+    <label for="addPersonalItem">Add items to list</label>
+    <input type="text" id="addPersonalItem">
+    <button type="submit">Add</button>
+    </form>
 
   </body>
 </html>
