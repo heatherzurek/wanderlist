@@ -2,12 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- <script src="js/bootstrap.js"></script> -->
+    <script src="js/firebase.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/objects.js"></script>
     <script src="js/scripts.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <title>wanderlist</title>
   </head>
@@ -18,6 +23,24 @@
       <div class="header-buttons">
         <button type="button" name="button" class="btn-light ">LogIn</button>
         <button type="button" name="button" class="btn-light">Start new list</button>
+
+    <div class="main-div">
+      <input type="email" placeholder="Email..." id="email-input"/>
+      <input type="password" placeholder="Password..." id="password-input" />
+
+      <button type="button" id="newUserSubmit">Create Account</button>
+        <h6 id="existingUser">Already have an account?</h6>
+      </div>
+      
+    <form id="lists">
+      <div class="form-group">
+        <label for="season">Season</label>
+        <select class="form-control" id="season" >
+          <option value="winterList">Winter</option>
+          <option value="springList">Spring</option>
+          <option value="summerList">Summer</option>
+          <option value="fallList">Fall</option>
+        </select>
       </div>
       <img src="img/campappbg.jpg" alt="Camping scene at night">
     </header>
@@ -50,31 +73,22 @@
         <button type="button" name="button" id="listMaker">Show Me My List!</button>
       </form>
 
-      <div class="customList">
-        <form class="prePopLists">
-        <h4>Here is your WanderList!</h4>
-        <h5><span id="userListName"></span></h5>
-        <br>
-        <span id="userSeasonSelected"></span>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" name="prePopList" value="Item One">Item One<span id=""></span>
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" name="prePopList" value="Item Two"><span id="">Item Two</span>
-        </label>
-        </div>
-        <button type="button" name="button" id="selectedItemsList">Save My Lists</button>
-        </form>
-      </div>
+    <div class="customList">
+      <form class="prePopLists">
+      <h4>Here is your WanderList!</h4>
+      <h5><span id="userListName"></span></h5>
+    </div>
 
-      <!-- add extra items form -->
-      <!-- <li><input class="form-control form-control-sm" type="text" placeholder="Additional item"></li> -->
-      <output>
+    <output>
+      <span id="seasonAndTerrainList"></span>
+    </output>
+    <button type="button" name="button" id="selectedItemsList">Save My List</button>
 
-      </output>
-    </main>
-  </body>
+    <form id="personalItems">
+    <label for="addPersonalItem">Add items to list</label>
+    <input type="text" id="addPersonalItem">
+    <button type="submit">Add</button>
+    </form>
+
+      </body>
 </html>

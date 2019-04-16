@@ -51,9 +51,39 @@ header button{
   margin: 85% 0;
   display: flex;
   justify-content: center;
+/* heathers css sheet */
+
+h6 {
+  padding: 5px;
 }
 
-h4 {
+.main-div {
+  width: 25%;
+  margin: 0px auto;
+  margin-top: 150px;
+  padding: 20px;
+}
+
+.main-div input {
+  display: block;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.main-div button {
+  background: #B9CCE4;
+  color: #ffffff;
+  border: 0px;
+  border-radius: 5px;
+}
+
+.main-div button:hover {
+  background-color: #ffffff;
   color: #B9CCE4;
 } */
 
@@ -129,3 +159,5 @@ select.placeholder {
     margin: 0 auto;
   }
 }
+
+/* end heathers css styles */
