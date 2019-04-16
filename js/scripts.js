@@ -74,11 +74,28 @@ function attachEventListeners() {
     user.addList(newArray);
     console.log(user);
   });
+//Login submission function for firebase
+  $("#newUserSubmit").click(function(){
+    var userEmail = $("#email-input").val();
+    var userPassword = $("#password-input").val();
+    console.log(userEmail, userPassword);
+    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ...
+    });
+  })
 };
+
+//Sign in for existing user with firebase
+$("#")
 // end attachEventListeners
 
 
 //Document.ready start
 $(document).ready(function(){
   attachEventListeners();
+
+
 })//end document.ready

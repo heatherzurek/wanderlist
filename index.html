@@ -8,23 +8,23 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- <script src="js/bootstrap.js"></script> -->
+    <script src="js/firebase.js"></script>
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/objects.js"></script>
     <script src="js/scripts.js"></script>
+
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <title>wanderlist</title>
   </head>
   <body>
     <div class="main-div">
-      <input type="email" placeholder="Email..."/>
-      <input type="password" placeholder="Password..." />
+      <input type="email" placeholder="Email..." id="email-input"/>
+      <input type="password" placeholder="Password..." id="password-input" />
 
-      <button type="button">Login to Account</button>
-    </div>
-    <!-- add firebase user auth -->
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader"> </div>
-
+      <button type="button" id="newUserSubmit">Create Account</button>
+        <h6 id="existingUser">Already have an account?</h6>
+      </div>
+      
     <form id="lists">
       <div class="form-group">
         <label for="season">Season</label>
@@ -67,6 +67,5 @@
     <input type="text" id="addPersonalItem">
     <button type="submit">Add</button>
     </form>
-
   </body>
 </html>

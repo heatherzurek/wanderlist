@@ -9,38 +9,39 @@ var config = {
 };
 var wanderlist = firebase.initializeApp(config);
 
+var db = firebase.firestore(wanderlist)
 
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
-var uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    },
-    uiShown: function() {
-      // The widget is rendered.
-      // Hide the loader.
-      document.getElementById('loader').style.display = 'none';
-    }
-  },
-  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
-  signInSuccessUrl: 'index.html',
-  signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
-  ],
-  // Terms of service url.
-  tosUrl: 'index.html',
-  // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
+
+
+function writeData(data) {
+  db.collection("campLists").doc("uid").set({
+    name: "hello"
+  })
+
+}
+// writeData ()
+
+
+
+var config = {
+  apiKey: "apiKey",
+  authDomain: "wanderlist-20885.firebaseapp.com",
+  databaseURL: "https://wanderlist-20885.firebaseio.com/",
+  storageBucket: "bucket.appspot.com"
 };
+firebase.initializeApp(config);
 
-ui.start('#firebaseui-auth-container', uiConfig);
+// save data to database
+var database = firebase.database();
+
+
+console.log(firebase.auth().currentUser);
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user);
+      } else {
+    // No user is signed in.
+  }
+});
