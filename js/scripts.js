@@ -17,7 +17,6 @@ function buildCheckBoxList(seasonInput, terrainInput){
       merged.push(list.listItems[j]);
     };
   })
-  console.log(merged);
   return merged;
 }
 // console.log("test build",buildCheckBoxList(winterList, riverList));
@@ -28,25 +27,27 @@ function buildCheckBoxList(seasonInput, terrainInput){
 function displayCheckBoxList(listItemArray) {
   var html ="";
   listItemArray.forEach(function(listItem){
-    html += "<input type='checkbox' name='userList' id='" + listItem.itemId + "'<label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label>";
+    html += "<li><input type='checkbox' name='userList' id='" + listItem.itemId + "'<label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label></li>";
   });
-  console.log(html);
-  $('output').append(html);
+  $('#seasonAndTerrainList').append(html);
 };
 
 
 //Helper functions ------//
 //attachEventListeners will control button clicks
 function attachEventListeners() {
+  var listItemArray = [];
+  var listName = "";
   $("#listMaker").on("click", function(event) {
-    var listName = $("#listName").val();
+    listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
 
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
-    displayCheckBoxList(buildCheckBoxList(seasonSelected, terrainSelected));
+    listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
+    displayCheckBoxList(listItemArray);
   });
 
   //will loop through selected items and push selected list items to new list ---//
@@ -54,15 +55,28 @@ function attachEventListeners() {
   //push selected list items into new array and push to user
   $("#selectedItemsList").click(function (event) {
     event.preventDefault();
-    console.log("clicked");
-    var selectedItems = [];
-    $("input[name='prePopList']:checked").each(function() {
-      selectedItems.push($(this).val());
+    var selectedItemIds = [];
+    $('input[name="userList"]:checked').each(function() {
+      selectedItemIds.push(this.id);
       });
-      console.log(selectedItems);
-      return selectedItems;
+      console.log("selectedItemIds", selectedItemIds);
+
+      var newArray = [];
+      selectedItemIds.forEach(function(id) {
+      for (i = 0; i < listItemArray.length; i++) {
+        if (id == listItemArray[i].itemId) {
+          newArray.push(listItemArray[i]);
+        };
+      }
     });
-}// end attachEventListeners
+    // push the new array into user object
+    newArray.listName = listName;
+    user.addList(newArray);
+    console.log(user);
+  });
+};
+// end attachEventListeners
+
 
 //Document.ready start
 $(document).ready(function(){
