@@ -52,10 +52,6 @@ List.prototype.addCamper = function (camper) {
   this.campers.push(camper);
 };
 
-function DefaultList() {
-  this.defaultList = [];
-}
-
 // Create Default Lists
 var baseList = ["Sleeping pad with inflation device if necessey", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kid", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
 var summerList = ["3 Season Tent", "35° Sleeping bag", "Sunshade Tarp", "Sunscreen", "Microfiber towel", "Insect Repellent", "Matches and Firestarters"];
@@ -91,15 +87,15 @@ var defaultLists = [baseList, summerList, fallList, springList, winterList, fore
 // var defaults = createList(defaultLists, "defaultLists");
 // console.log(defaults);
 
-user.addList(springList);
-user.addList(fallList);
-user.addList(summerList);
-user.addList(winterList);
-user.addList(forestList);
-user.addList(desertList);
-user.addList(mountainList);
-user.addList(riverList);
-user.addList(baseList);
+// user.addList(springList);
+// user.addList(fallList);
+// user.addList(summerList);
+// user.addList(winterList);
+// user.addList(forestList);
+// user.addList(desertList);
+// user.addList(mountainList);
+// user.addList(riverList);
+// user.addList(baseList);
 console.log(user);
 
 //ListItem Object and Methods -------//

@@ -1,37 +1,38 @@
-git
-var userGenerated = [];
-function buildUserList(seasonInput, terrainInput){
-  let inputArray = [seasonInput, terrainInput];
+//buildCheckBoxList compiles a new list based on baseList and the two
+//lists from user input
+function buildCheckBoxList(seasonInput, terrainInput){
+  var inputArray = [seasonInput, terrainInput];
+  var outPutArray = [baseList];
+  var merged = [];
+
   inputArray.forEach(function(input){
     for(i=0;i<defaultLists.length;i++){
       if(defaultLists[i].listName === input){
-        userGenerated.push(defaultLists[i]);
+        outPutArray.push(defaultLists[i]);
       };
     };
-  });
-  console.log(userGenerated);
- var one = userGenerated[0].listItems;
- var two = userGenerated[1].listItems;
- console.log(one,two);
- var merged = $.merge(one,two);
- // var mergeConcat = one.concat(two);
+  })
+  outPutArray.forEach(function(list){
+    for(j=0; j < list.listItems.length; j++){
+      merged.push(list.listItems[j]);
+    };
+  })
   console.log(merged);
+  return merged;
 }
-//create a function that displays merged list in a checkbox form for user selection
-//push that selection to user
+// console.log("test build",buildCheckBoxList(winterList, riverList));
+//take return value from buildUserList(), display it with checkboxes for
+//displayCheckBox(), and then pull checked values from that list, and compile it into the actual users list.
 
-List.prototype.displayCheckBox = function () {
+//create a function that displays merged list in a checkbox form for user selection
+function displayCheckBoxList(listItemArray) {
   var html ="";
-  this.listItems.forEach(function(listItem){
+  listItemArray.forEach(function(listItem){
     html += "<input type='checkbox' name='userList' id='" + listItem.itemId + "'<label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label>";
   });
   console.log(html);
   $('output').append(html);
-  return html;
 };
-
-// springList.displayCheckBox();
-// $('output').append(springList.displayCheckBox);
 
 
 //Helper functions ------//
@@ -41,33 +42,29 @@ function attachEventListeners() {
     var listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
-    buildUserList(seasonSelected, terrainSelected);
+
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
-    console.log(terrainSelected, seasonSelected);
-    // console.log(defaultLists);
-    // console.log(userGenerated);
+    displayCheckBoxList(buildCheckBoxList(seasonSelected, terrainSelected));
   });
+
   //will loop through selected items and push selected list items to new list ---//
 
-    //push selected list items into new array and push to user
-    $("#selectedItemsList").click(function (event) {
-      event.preventDefault();
-      console.log("clicked");
-      var selectedItems = [];
-      $("input[name='prePopList']:checked").each(function() {
-        selectedItems.push($(this).val());
-        });
-        console.log(selectedItems);
-        return selectedItems;
+  //push selected list items into new array and push to user
+  $("#selectedItemsList").click(function (event) {
+    event.preventDefault();
+    console.log("clicked");
+    var selectedItems = [];
+    $("input[name='prePopList']:checked").each(function() {
+      selectedItems.push($(this).val());
       });
+      console.log(selectedItems);
+      return selectedItems;
+    });
 }// end attachEventListeners
-
-
 
 //Document.ready start
 $(document).ready(function(){
   attachEventListeners();
-  springList.displayCheckBox();
 })//end document.ready
