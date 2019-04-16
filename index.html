@@ -38,20 +38,27 @@
     </form>
 
     <div class="customList">
-      <h4>Here is your list!</h4>
-      <span id="userListName"></span>:
-      <span id="userSeasonSelected"></span>
-      <ul>
-        <li>Item One</li>
-        <li>Item Two</li>
-      </ul>
+      <form class="prePopLists">
+      <h4>Here is your WanderList!</h4>
+      <h5><span id="userListName"></span></h5>
       <br>
-      <span id="userTerrainSelected"></span>
-      <ul>
-        <li>Item One</li>
-        <li>Item Two</li>
-      </ul>
+      <span id="userSeasonSelected"></span>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" name="prePopList" value="Item One">Item One<span id=""></span>
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" name="prePopList" value="Item Two"><span id="">Item Two</span>
+      </label>
+      </div>
+      <button type="button" name="button" id="selectedItemsList">Save My Lists</button>
+      </form>
     </div>
+
+    <!-- add extra items form -->
+    <!-- <li><input class="form-control form-control-sm" type="text" placeholder="Additional item"></li> -->
     <output>
 
     </output>
