@@ -74,15 +74,21 @@
       </form>
 
     <div class="customList">
-      <form class="prePopLists">
       <h4>Here is your WanderList!</h4>
       <h5><span id="userListName"></span></h5>
+      <output id="seasonAndTerrainList">
+      </output>
+      <button type="button" name="button" id="selectedItemsList">Save My List</button>
     </div>
 
-    <output>
-      <span id="seasonAndTerrainList"></span>
-    </output>
-    <button type="button" name="button" id="selectedItemsList">Save My List</button>
+    <div>
+      <form id="personalItems">
+        <span id="userPopList"></span>
+      <label for="addPersonalItem">Add items to list</label>
+      <input type="text" id="addPersonalItem">
+      <button type="submit" id="addItemButton">Add</button>
+      </form>
+    </div>
 
     <form id="personalItems">
     <label for="addPersonalItem">Add items to list</label>
@@ -91,4 +97,5 @@
     </form>
 
       </body>
+  </body>
 </html>

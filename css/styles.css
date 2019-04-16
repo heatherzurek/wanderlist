@@ -51,12 +51,28 @@ header button{
   margin: 85% 0;
   display: flex;
   justify-content: center;
+=======
+#seasonAndTerrainList {
+  list-style: none;
+}
+/* body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #041B44;
+  color: #C8BDC7;
+} */
+
+#personalItems {
+  display: none;
+  
 /* heathers css sheet */
 
 h6 {
   padding: 5px;
-}
+  }
 
+#userPopList {
+  list-style: none;
+}
 .main-div {
   width: 25%;
   margin: 0px auto;
