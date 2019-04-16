@@ -9,7 +9,12 @@
 
 #personalItems {
   display: none;
-}
+  
+/* heathers css sheet */
+
+h6 {
+  padding: 5px;
+  }
 
 #userPopList {
   list-style: none;
@@ -19,7 +24,6 @@
   margin: 0px auto;
   margin-top: 150px;
   padding: 20px;
-
 }
 
 .main-div input {
@@ -40,8 +44,9 @@
   border-radius: 5px;
 }
 
-
 .main-div button:hover {
   background-color: #ffffff;
   color: #B9CCE4;
 }
+
+/* end heathers css styles */
