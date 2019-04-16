@@ -69,11 +69,48 @@ function attachEventListeners() {
         };
       }
     });
-    // push the new array into user object
+    //push the new array into user object ---//
     newArray.listName = listName;
     user.addList(newArray);
-    console.log(user);
+    // console.log(user);
+    // console.log(listItemArray);
+
+    //output list of selected items from newArray ---//
+    var html ="";
+    newArray.forEach(function(listItem){
+      html += "<li><input type='checkbox' name='userList' id='" + listItem.itemId + "'<label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label></li>";
+    });
+    $("#seasonAndTerrainList").hide();
+    $("#selectedItemsList").hide();
+    $("#personalItems").show();
+    $("#userPopList").append(html);
   });
+
+//allow user to add items ---//
+$("#addItemButton").click(function(event) {
+  event.preventDefault();
+  var userItem = $("#addPersonalItem").val();
+  var newListItem = new ListItem(userItem);
+  // user.lists[0].push(newListItem);
+  var newUserList = new List();
+  newUserList.addListItem(newListItem);
+  console.log(newUserList);
+
+  console.log(user.lists[0]);
+
+  //find user's list and add item to that list
+
+  console.log(userItem);
+  $("#userPopList").append("<li>" + userItem + "</li>");
+
+//save user inputs and push all previously selected items and user inputs into a new lists ---//
+
+});
+
+//allow user to check off items
+
+
+
 //Login submission function for firebase
   $("#newUserSubmit").click(function(){
     var userEmail = $("#email-input").val();
