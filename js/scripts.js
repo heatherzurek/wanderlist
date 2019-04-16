@@ -56,6 +56,7 @@ function attachEventListeners() {
   $("#selectedItemsList").click(function (event) {
     event.preventDefault();
     var selectedItemIds = [];
+
     $('input[name="userList"]:checked').each(function() {
       selectedItemIds.push(this.id);
       });

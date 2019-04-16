@@ -1,3 +1,57 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #041B44;
+  color: #C8BDC7;
+  height: 100%;
+  display: block;
+  /* font-size: 1em; */
+}
+.wrapper{
+}
+/*
+header {
+  height: 100vh;
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: transparent;
+}
+
+header img {
+  position: fixed;
+  top:0;
+  z-index: -1;
+  margin: 0 auto;
+}
+
+header h1 {
+  margin: 35% 0 0;
+  font-size: 10em;
+  background-color: inherit;
+  z-index: 100;
+}
+
+header h2 {
+  font-size: 4em;
+}
+
+header button{
+  font-size: 4em;
+  margin: 0 20px;
+
+}
+
+.header-buttons {
+  margin: 85% 0;
+  display: flex;
+  justify-content: center;
+=======
 #seasonAndTerrainList {
   list-style: none;
 }
@@ -47,6 +101,79 @@ h6 {
 .main-div button:hover {
   background-color: #ffffff;
   color: #B9CCE4;
+} */
+
+.bigImg-1, .bigImg-2 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bigImg-1 {
+  background-image: url("../img/campappbg.jpg");
+  height: 100%;
+}
+
+.bigImg-1-content {
+  text-align: center;
+  padding: 70px 0;
+}
+
+.bigImg-1-content h1 {
+  font-size: 6.5rem;
+}
+
+.bigImg-login {
+  position: absolute;
+  left: 0;
+  top: 85%;
+  text-align: center;
+  width: 100%;
+}
+
+.bigImg-2 {
+  background-image: url("../img/campappbglgt.jpg");
+  min-height: 900px;
+
+}
+
+.bigImg-2-content {
+  background-color: white;
+  height: 900px;
+  width: 80%;
+  color: black;
+  opacity: .5;
+  margin: 0 auto;
+}
+
+.box-1{
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  color: #96188b;
+}
+
+.box-2{
+  text-align: center;
+  height: 300px;
+}
+
+form {
+  padding: 30px;
+}
+
+select.placeholder {
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px){
+  body{
+    width: 70%;
+    margin: 0 auto;
+  }
 }
 
 /* end heathers css styles */

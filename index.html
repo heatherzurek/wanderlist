@@ -17,6 +17,13 @@
     <title>wanderlist</title>
   </head>
   <body>
+    <header>
+      <h1>WanderList</h1>
+      <h2>Build your list with us</h2>
+      <div class="header-buttons">
+        <button type="button" name="button" class="btn-light ">LogIn</button>
+        <button type="button" name="button" class="btn-light">Start new list</button>
+
     <div class="main-div">
       <input type="email" placeholder="Email..." id="email-input"/>
       <input type="password" placeholder="Password..." id="password-input" />
@@ -35,21 +42,36 @@
           <option value="fallList">Fall</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="terrain">Terrain Type</label>
-        <select class="form-control" id="terrain">
-          <option value="mountainList">Mountain</option>
-          <option value="desertList">Desert</option>
-          <option value="forestList">Forest</option>
-          <option value="riverList">River</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="listName">List Name</label>
-        <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
-      </div>
-      <button type="button" name="button" id="listMaker">Show Me My List!</button>
-    </form>
+      <img src="img/campappbg.jpg" alt="Camping scene at night">
+    </header>
+    <section id="welcome">
+    </section>
+    <main>
+      <form id="lists">
+        <div class="form-group">
+          <label for="season">Season</label>
+          <select class="form-control" id="season" >
+            <option value="winterList">Winter</option>
+            <option value="springList">Spring</option>
+            <option value="summerList">Summer</option>
+            <option value="fallList">Fall</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="terrain">Terrain Type</label>
+          <select class="form-control" id="terrain">
+            <option value="mountainList">Mountain</option>
+            <option value="desertList">Desert</option>
+            <option value="forestList">Forest</option>
+            <option value="riverList">River</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="listName">List Name</label>
+          <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
+        </div>
+        <button type="button" name="button" id="listMaker">Show Me My List!</button>
+      </form>
 
     <div class="customList">
       <h4>Here is your WanderList!</h4>
@@ -68,5 +90,12 @@
       </form>
     </div>
 
+    <form id="personalItems">
+    <label for="addPersonalItem">Add items to list</label>
+    <input type="text" id="addPersonalItem">
+    <button type="submit">Add</button>
+    </form>
+
+      </body>
   </body>
 </html>
