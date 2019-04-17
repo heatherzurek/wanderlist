@@ -43,10 +43,9 @@ function buildNewListObject(array){
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
-console.log("click");
+
   listObject.listItems.forEach(function(listItem) {
     $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
-    console.log("clicked", listObject);
   })
 }
 
@@ -122,7 +121,10 @@ function attachEventListeners() {
   });
 
 //allow user to check off items
+  $(".bigImg-2").on("click", "li", function(event) {
+    console.log("hello?");
 
+  });
 
 
 //Login submission function for firebase
