@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <!-- <script src="js/bootstrap.js"></script> -->
+    <script src="js/firebase.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/objects.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <title>wanderlist</title>
+  </head>
+  <body>
+    <header>
+      <h1>WanderList</h1>
+      <h2>Build your list with us</h2>
+      <div class="header-buttons">
+        <button type="button" name="button" class="btn-light ">LogIn</button>
+        <button type="button" name="button" class="btn-light">Start new list</button>
+
+    <div class="main-div">
+      <input type="email" placeholder="Email..." id="email-input"/>
+      <input type="password" placeholder="Password..." id="password-input" />
+
+      <button type="button" id="newUserSubmit">Create Account</button>
+        <h6 id="existingUser">Already have an account?</h6>
+      </div>
+
+    <form id="lists">
+      <div class="form-group">
+        <label for="season">Season</label>
+        <select class="form-control" id="season" >
+          <option value="winterList">Winter</option>
+          <option value="springList">Spring</option>
+          <option value="summerList">Summer</option>
+          <option value="fallList">Fall</option>
+        </select>
+      </div>
+      <img src="img/campappbg.jpg" alt="Camping scene at night">
+    </header>
+    <section id="welcome">
+    </section>
+    <main>
+      <form id="lists">
+        <div class="form-group">
+          <label for="season">Season</label>
+          <select class="form-control" id="season" >
+            <option value="winterList">Winter</option>
+            <option value="springList">Spring</option>
+            <option value="summerList">Summer</option>
+            <option value="fallList">Fall</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="terrain">Terrain Type</label>
+          <select class="form-control" id="terrain">
+            <option value="mountainList">Mountain</option>
+            <option value="desertList">Desert</option>
+            <option value="forestList">Forest</option>
+            <option value="riverList">River</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="listName">List Name</label>
+          <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
+        </div>
+        <button type="button" name="button" id="listMaker">Show Me My List!</button>
+      </form>
+
+    <div class="customList">
+      <h4>Here is your WanderList!</h4>
+      <h5><span id="userListName"></span></h5>
+      <output id="seasonAndTerrainList">
+      </output>
+      <button type="button" name="button" id="selectedItemsList">Save My List</button>
+    </div>
+
+    <div>
+      <form id="personalItems">
+        <span id="userPopList"></span>
+      <label for="addPersonalItem">Add items to list</label>
+      <input type="text" id="addPersonalItem">
+      <button type="submit" id="addItemButton">Add</button>
+      </form>
+    </div>
+
+    <form id="personalItems">
+    <label for="addPersonalItem">Add items to list</label>
+    <input type="text" id="addPersonalItem">
+    <button type="submit">Add</button>
+    </form>
+
+      </body>
+  </body>
+</html>
