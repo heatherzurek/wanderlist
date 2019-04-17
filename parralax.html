@@ -6,6 +6,7 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <!-- <script src="js/bootstrap.js"></script> -->
     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="js/objects.js"></script>
     <script src="js/scripts.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -19,7 +20,7 @@
       </div>
       <div class="bigImg-login">
         <button type="button" name="button" class="btn-light ">LogIn</button>
-        <button type="button" name="button" class="btn-light">Start new list</button>
+        <button type="button" name="button" class="btn-light">Sign Up</button>
       </div>
     </div>
       <div class="box-1">
@@ -50,20 +51,45 @@
             <label for="listName">List Name</label>
             <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
           </div>
-          <button type="button" name="button" id="listMaker">Show Me My List!</button>
+          <button type="button" name="button" id="listMaker" data-target="#listModal" data-backdrop=false data-keyboard=false >Build New List!</button>
         </form>
       </div>
       <div class="bigImg-2">
-        <div class="bigImg-2-content">
-          <h2>Once you get your list, you can mark them as packed, add additional items, or delete them.</h2>
-          <p></p>
+        <h2>Once you make your list, you can mark items as packed, add additional items, or delete them.</h2>
+        <div class="bigImg-2-content hidden">
+          <output></output>
         </div>
       </div>
       <div class="box-2">
-        <h2>box two content here</h2>
-        <p>Camping with friends?  Email them your packing list, or build one specifically for them!</p>
+        <h2>Camping With Friends?</h2>
+        <p>Email them your packing list, or build one specifically for them!</p>
       </div>
 
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
+        Launch demo modal
+      </button> -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="listModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">This list should get you started.  Uncheck the items you don't think you'll need and you'll be ready to start packing.</h5>
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> -->
+            </div>
+            <div class="modal-body">
+              <output name="result"></output>
+            </div>
+            <div class="modal-footer">
+              <button id="modalGoBack"type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+              <button id="selectedItemsSubmit" type="button" class="btn btn-primary">Save this list</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
