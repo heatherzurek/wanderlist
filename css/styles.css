@@ -63,7 +63,7 @@ header button{
 
 #personalItems {
   display: none;
-  
+
 /* heathers css sheet */
 
 h6 {
@@ -101,7 +101,7 @@ h6 {
 .main-div button:hover {
   background-color: #ffffff;
   color: #B9CCE4;
-} */
+}
 
 .bigImg-1, .bigImg-2 {
   position: relative;

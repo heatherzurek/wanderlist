@@ -87,26 +87,26 @@ function attachEventListeners() {
     $("#userPopList").append(html);
   });
 
-//allow user to add items ---//
-$("#addItemButton").click(function(event) {
-  event.preventDefault();
-  var userItem = $("#addPersonalItem").val();
-  var newListItem = new ListItem(userItem);
-  // user.lists[0].push(newListItem);
-  var newUserList = new List();
-  newUserList.addListItem(newListItem);
-  console.log(newUserList);
+  //allow user to add items ---//
+  $("#addItemButton").click(function(event) {
+    event.preventDefault();
+    var userItem = $("#addPersonalItem").val();
+    var newListItem = new ListItem(userItem);
+    // user.lists[0].push(newListItem);
+    var newUserList = new List();
+    newUserList.addListItem(newListItem);
+    console.log(newUserList);
 
-  console.log(user.lists[0]);
+    console.log(user.lists[0]);
 
-  //find user's list and add item to that list
+    //find user's list and add item to that list
 
-  console.log(userItem);
-  $("#userPopList").append("<li>" + userItem + "</li>");
+    console.log(userItem);
+    $("#userPopList").append("<li>" + userItem + "</li>");
 
-//save user inputs and push all previously selected items and user inputs into a new lists ---//
+  //save user inputs and push all previously selected items and user inputs into a new lists ---//
 
-});
+  });
 
 //allow user to check off items
 
@@ -127,7 +127,7 @@ $("#addItemButton").click(function(event) {
 };
 
 //Sign in for existing user with firebase
-$("#")
+
 // end attachEventListeners
 
 
