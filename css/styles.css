@@ -4,15 +4,14 @@ html {
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background-color: #041B44;
+  background-color: #486d97;
   color: #C8BDC7;
   height: 100%;
   display: block;
+  /* background-image: linear-gradient(#8d8ea5,#143767); */
   /* font-size: 1em; */
 }
-.wrapper{
-}
-/*
+
 header {
   height: 100vh;
   width: auto;
@@ -47,24 +46,29 @@ header button{
 
 }
 
+li {
+  list-style-type: none;
+}
+
+li input {
+  margin: 10px 15px;
+}
+
 .header-buttons {
   margin: 85% 0;
   display: flex;
   justify-content: center;
-=======
+}
+
 #seasonAndTerrainList {
   list-style: none;
 }
-/* body {
-  font-family: 'Quicksand', sans-serif;
-  background-color: #041B44;
-  color: #C8BDC7;
-} */
+
 
 #personalItems {
   display: none;
-  
-/* heathers css sheet */
+}
+
 
 h6 {
   padding: 5px;
@@ -73,6 +77,7 @@ h6 {
 #userPopList {
   list-style: none;
 }
+
 .main-div {
   width: 25%;
   margin: 0px auto;
@@ -101,7 +106,7 @@ h6 {
 .main-div button:hover {
   background-color: #ffffff;
   color: #B9CCE4;
-} */
+}
 
 .bigImg-1, .bigImg-2 {
   position: relative;
@@ -134,43 +139,75 @@ h6 {
   width: 100%;
 }
 
+.box-1 {
+  text-align: center;
+  background-color: #486d97;
+  padding: 20px;
+  color: #c2cedb;
+}
+
 .bigImg-2 {
   background-image: url("../img/campappbglgt.jpg");
-  min-height: 900px;
+  min-height: 100px;
+}
 
+.bigImg-2 h2{
+  padding: 50px 20px;
+  color: #163860;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .bigImg-2-content {
   background-color: white;
-  height: 900px;
+  /* height: 900px; */
   width: 80%;
   color: black;
-  opacity: .5;
+  opacity: .8;
   margin: 0 auto;
+  padding: 20px;
+  color: black;
+  background-image: linear-gradient(rgba(255,0,0,0) 70%, rgb(101, 163, 174));
 }
 
-.box-1{
+.bigImg-2-content h2 {
   text-align: center;
-  background-color: white;
-  padding: 20px;
-  color: #96188b;
 }
 
 .box-2{
   text-align: center;
   height: 300px;
+  color: #c2cedb;
+}
+
+#listModal {
+  color: #163860
 }
 
 form {
   padding: 30px;
 }
 
-select.placeholder {
+#terrain, #season {
+  width: 50%;
+  margin: 0 auto;
+  text-align-last: center;
+}
+
+#listName {
+  width: 50%;
+  margin: 0 auto;
   text-align: center;
 }
 
+.hidden {
+  /* visibility: hidden; */
+  display: none;
+}
+
 @media only screen and (min-width: 900px){
-  body{
+  .bigImg-1 {
     width: 70%;
     margin: 0 auto;
   }
