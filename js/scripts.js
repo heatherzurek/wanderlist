@@ -27,7 +27,6 @@ function displayCheckBoxList(listItemArray) {
   listItemArray.forEach(function(listItem){
     html += "<li><input type='checkbox' name='userList' id='" + listItem.itemId + "' checked='checked'><label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label></li>";
   });
-  // $('#seasonAndTerrainList').append(html);
   $("#listModal output").append(html);
 };
 
@@ -38,12 +37,16 @@ function buildNewListObject(array){
   array.forEach(function(listItem){
     newList.addListItem(listItem);
   })
-  // console.log(newList);
   return newList;
 }
 
-function buildUserList(listObject) {
+//displayUserList() displays user list on the screen
+function displayUserList(listObject) {
   var list = listObject;
+
+  listObject.listItems.forEach(function(listItem) {
+    $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
+  })
 }
 
 //attachEventListeners() will control button clicks
@@ -70,12 +73,11 @@ function attachEventListeners() {
     event.preventDefault();
     var selectedItemIds = [];
     var newArray = [];
+    var newList = buildNewListObject(newArray);
 
     $('input[name="userList"]:checked').each(function() {
       selectedItemIds.push(this.id);
       });
-      // console.log("selectedItemIds", selectedItemIds);
-
       selectedItemIds.forEach(function(id) {
       for (i = 0; i < listItemArray.length; i++) {
         if (id == listItemArray[i].itemId) {
@@ -83,30 +85,15 @@ function attachEventListeners() {
         };
       }
     });
-    //push the new array into user object
     newArray.listName = listName;
-
-
-
-    var newList = buildNewListObject(newArray);
     user.addList(newList);
-    console.log(user);
-    // console.log(user);
-    // console.log(listItemArray);
 
-    //output list of selected items from newArray
-    var html ="";
-    newArray.forEach(function(listItem){
-      $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
-    });
-    // $("#seasonAndTerrainList").hide();
-    // $("#selectedItemsList").hide();
-    // $("#personalItems").show();
+    //output list of selected items from user object
+    displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
     $("#listModal output").empty();
-
     })
   });
 
