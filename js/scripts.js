@@ -47,8 +47,23 @@ function displayUserList(listObject) {
 
   listObject.listItems.forEach(function(listItem) {
     $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
- 
+
   })
+}
+
+function addNewItemToListObject() {
+  var userItem = $("#addPersonalItem").val();
+  var newListItem = new ListItem(userItem);
+  var newUserList = new List();
+  var newUser = new User();
+  console.log(ListItem(userItem));
+
+  newItemArray.push(userItem);
+
+  newUserList.addListItem(newListItem);
+  list.addListItem(userItem);
+  user.addList(newUserList);
+
 }
 
 //attachEventListeners() will control button clicks
@@ -106,27 +121,18 @@ function attachEventListeners() {
     event.preventDefault();
     var userItem = $("#addPersonalItem").val();
     var newListItem = new ListItem(userItem);
-    var newUserList = new List();
-    var newUser = new User();
-    // user.lists[0].push(newListItem);
-    newUserList.addListItem(newListItem);
-    newUser.addList(userItem);
-    // console.log(newUserList);
-    // console.log(user.lists[0]);
+    user.lists[0].addListItem(newListItem);
 
     //find user's list and add item to that list
-    // console.log(newUserList);
     console.log(user);
     $("#userPopList").append("<li>" + userItem + "</li>");
-
-
   //save user inputs and push all previously selected items and user inputs into a new lists ---//
 
   });
 
 //allow user to check off items
   $(".bigImg-2").on("click", "li", function(event) {
-    console.log("hello?");
+    // console.log("hello?");
 
   });
 
