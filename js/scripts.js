@@ -43,20 +43,21 @@ function buildNewListObject(array){
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
-
-
+$(".bigImg-2-content output").empty();
   listObject.listItems.forEach(function(listItem) {
     $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "</li>");
-
   })
+  checkIsPacked(list);
 }
 
 function checkIsPacked (listObject) {
   for (i=0; i < listObject.listItems.length; i++ ) {
+    var itemId = "#" + listObject.listItems[i].itemId;
     if(listObject.listItems[i].isChecked) {
-
-      var itemId = "#" + listObject.listItems[i].itemId;
       $(itemId).addClass("isPacked");
+    }
+    if(!listObject.listItems[i].isChecked){
+      $(itemId).removeClass("isPacked");
     }
   }
 }
@@ -117,30 +118,36 @@ function attachEventListeners() {
     var userItem = $("#addPersonalItem").val();
     var newListItem = new ListItem(userItem);
     user.lists[0].addListItem(newListItem);
-
+    displayUserList(user.lists[0]);
+    $("#addPersonalItem").val('');
     //find user's list and add item to that list
-    console.log(user);
-    $("#userPopList").append("<li>" + userItem + "</li>");
+    // console.log(user);
+    // $(".bigImg-2-content output").append("<li>" + userItem + "</li>");
   //save user inputs and push all previously selected items and user inputs into a new lists ---//
-
   });
 
-//allow user to check off items
+  //toggle items as Packed
   $(".bigImg-2").on("click", "li", function(event) {
     var listItemId = $(this).attr("id");
 
     for (i = 0; i < user.lists[0].listItems.length; i++){
       if (listItemId == user.lists[0].listItems[i].itemId){
-        user.lists[0].listItems[i].isChecked = true;
-
+        if(!user.lists[0].listItems[i].isChecked){
+          user.lists[0].listItems[i].isChecked = true;
+          break;
+        } else {
+          user.lists[0].listItems[i].isChecked = false;
+          // console.log("now false");
+        }
       }
+
     }
-    checkIsPacked(user.lists[0]);
-    console.log("hello reese");
-
     // console.log("hello?");
+    checkIsPacked(user.lists[0]);
+    var number = parseInt(listItemId);
+    // console.log(user.lists[0].listItems[number].isChecked);
+  })
 
-  });
 
 
 //Login submission function for firebase
