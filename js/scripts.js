@@ -43,10 +43,10 @@ function buildNewListObject(array){
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
-console.log("click");
+// console.log("click");
   listObject.listItems.forEach(function(listItem) {
     $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
-    console.log("clicked", listObject);
+    // console.log("clicked", listObject);
   })
 }
 
@@ -95,7 +95,7 @@ function attachEventListeners() {
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
-    $("#listModal output").empty();
+      $("#listModal output").empty();
     })
   });
 
@@ -106,16 +106,18 @@ function attachEventListeners() {
     var userItem = $("#addPersonalItem").val();
     var newListItem = new ListItem(userItem);
     var newUserList = new List();
-
+    var newUser = new User();
     // user.lists[0].push(newListItem);
     newUserList.addListItem(newListItem);
-    console.log(newUserList);
-    console.log(user.lists[0]);
+    newUser.addList(userItem);
+    // console.log(newUserList);
+    // console.log(user.lists[0]);
 
     //find user's list and add item to that list
-
-    console.log(userItem);
+    // console.log(newUserList);
+    console.log(user);
     $("#userPopList").append("<li>" + userItem + "</li>");
+
 
   //save user inputs and push all previously selected items and user inputs into a new lists ---//
 
