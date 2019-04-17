@@ -31,6 +31,21 @@ function displayCheckBoxList(listItemArray) {
   $("#listModal output").append(html);
 };
 
+function buildNewListObject(array){
+  var newList = new List();
+  newList.listName = array.listName;
+
+  array.forEach(function(listItem){
+    newList.addListItem(listItem);
+  })
+  // console.log(newList);
+  return newList;
+}
+
+function buildUserList(listObject) {
+  var list = listObject;
+}
+
 //attachEventListeners() will control button clicks
 function attachEventListeners() {
   var listItemArray = [];
@@ -70,7 +85,12 @@ function attachEventListeners() {
     });
     //push the new array into user object
     newArray.listName = listName;
-    user.addList(newArray);
+
+
+
+    var newList = buildNewListObject(newArray);
+    user.addList(newList);
+    console.log(user);
     // console.log(user);
     // console.log(listItemArray);
 
@@ -85,7 +105,8 @@ function attachEventListeners() {
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
-      $("#listModal output").empty();
+    $("#listModal output").empty();
+
     })
   });
 
