@@ -46,9 +46,19 @@ function displayUserList(listObject) {
 
 
   listObject.listItems.forEach(function(listItem) {
-    $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
- 
+    $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "</li>");
+
   })
+}
+
+function checkIsPacked (listObject) {
+  for (i=0; i < listObject.listItems.length; i++ ) {
+    if(listObject.listItems[i].isChecked) {
+
+      var itemId = "#" + listObject.listItems[i].itemId;
+      $(itemId).addClass("isPacked");
+    }
+  }
 }
 
 //attachEventListeners() will control button clicks
@@ -126,7 +136,17 @@ function attachEventListeners() {
 
 //allow user to check off items
   $(".bigImg-2").on("click", "li", function(event) {
-    console.log("hello?");
+    var listItemId = $(this).attr("id");
+
+    for (i = 0; i < user.lists[0].listItems.length; i++){
+      if (listItemId == user.lists[0].listItems[i].itemId){
+        // if (!user.lists[0].listItems[i].isChecked)
+        user.lists[0].listItems[i].isChecked = true;
+
+      }
+    }
+    checkIsPacked(user.lists[0]);
+    console.log("hello reese");
 
   });
 
