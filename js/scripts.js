@@ -140,7 +140,6 @@ function attachEventListeners() {
 
     for (i = 0; i < user.lists[0].listItems.length; i++){
       if (listItemId == user.lists[0].listItems[i].itemId){
-        // if (!user.lists[0].listItems[i].isChecked)
         user.lists[0].listItems[i].isChecked = true;
 
       }
@@ -172,9 +171,6 @@ function attachEventListeners() {
     })
   })
 };// end attachEventListeners
-
-//Sign in for existing user with firebase
-
 
 
 

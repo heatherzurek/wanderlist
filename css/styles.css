@@ -15,7 +15,6 @@ body {
 header {
   height: 100vh;
   width: auto;
-
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -215,9 +214,11 @@ form {
 }
 
 .isPacked::after {
-  content: " PACKED!";
-  font-weight: bolder;
-  margin-left: 10px;
+  content: "✓ Packed";
+  font-weight: bold;
+  float: right;
+  color: #306477;
+  margin-right: 20px;
 }
 
 @media only screen and (min-width: 900px){
