@@ -31,21 +31,22 @@ function displayCheckBoxList(listItemArray) {
 };
 
 function buildNewListObject(array){
-  var newList = new List();
-  newList.listName = array.listName;
+  var newListObject = new List();
+  newListObject.listName = array.listName;
 
   array.forEach(function(listItem){
-    newList.addListItem(listItem);
+    newListObject.addListItem(listItem);
   })
-  return newList;
+  return newListObject;
 }
 
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
-
+console.log("click");
   listObject.listItems.forEach(function(listItem) {
     $(".bigImg-2-content output").append("<li>" + listItem.itemName + "</li>");
+    console.log("clicked", listObject);
   })
 }
 
@@ -73,7 +74,6 @@ function attachEventListeners() {
     event.preventDefault();
     var selectedItemIds = [];
     var newArray = [];
-    var newList = buildNewListObject(newArray);
 
     $('input[name="userList"]:checked').each(function() {
       selectedItemIds.push(this.id);
@@ -86,9 +86,11 @@ function attachEventListeners() {
       }
     });
     newArray.listName = listName;
-    user.addList(newList);
+
+    user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
+    console.log(user);
     displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
