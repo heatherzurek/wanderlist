@@ -116,20 +116,11 @@ function attachEventListeners() {
     event.preventDefault();
     var userItem = $("#addPersonalItem").val();
     var newListItem = new ListItem(userItem);
-    var newUserList = new List();
-    var newUser = new User();
-    // user.lists[0].push(newListItem);
-    newUserList.addListItem(newListItem);
-    newUser.addList(userItem);
-    // console.log(newUserList);
-    // console.log(user.lists[0]);
+    user.lists[0].addListItem(newListItem);
 
     //find user's list and add item to that list
-    // console.log(newUserList);
     console.log(user);
     $("#userPopList").append("<li>" + userItem + "</li>");
-
-
   //save user inputs and push all previously selected items and user inputs into a new lists ---//
 
   });
@@ -146,6 +137,8 @@ function attachEventListeners() {
     }
     checkIsPacked(user.lists[0]);
     console.log("hello reese");
+
+    // console.log("hello?");
 
   });
 
