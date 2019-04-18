@@ -1,12 +1,12 @@
 # _WanderList_
 
-#### _{Brief description of application}, {Date of current version}_
+#### _Packing App for Camping trips, April 18, 2019_
 
 #### By _**Heather Zurek, Dustin Herboldshimer, Reese Lee**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_A web application that allows the user to create pre generated lists and edit them based on their trips needs_
 
 ## Setup/Installation Requirements
 
@@ -15,15 +15,18 @@ _{This is a detailed description of your application. Its purpose and usage.  Gi
 * _Select drop down for your trip_
 * _Add items to list_
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
 
 ## Specs
 
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-| User selects options to create camping checklist for their trip | Summer, Desert | Summer,Desert camping checklist appears |
-| User can select items they would like on their custom list | Tent | √ Tent |
-| User can add personal items to the pre-populated list | Sunglasses | Sunglasses is added to the Summer, Desert checklist |
+| User selects time of year for their trip | Winter | Winter |
+| User selects terrain type for their trip | Desert | Winter, Desert |
+| User can name their list | Grand Canyon Trip 2020 | Grand Canyon Trip 2020 |
+| User can uncheck items they don't want | ☑ Sleeping bag liner | ☐ Sleeping bag liner |
+| User can add items to their list | Warm socks | Warm socks |
+| User can remove items from their list | Warm socks | |
+| User can check off items that are packed | Coffee | Coffee ✓ Packed |
 
 ## Known Bugs
 
@@ -35,7 +38,7 @@ _If you run into any issues or have questions, ideas or concerns please reach ou
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_JavaScript_
 
 ### License
 
