@@ -18,6 +18,15 @@ WanderList.prototype.addUser = function (user) {
   this.users.push(user);
 };
 
+WanderList.prototype.setActiveUser = function (userId) {
+  this.users.forEach(function(user){
+    user.isActive = false;
+    if (user.userId === userId){
+      user.isActive = true;
+    }
+  })
+};
+
 WanderList.prototype.getActiveUser = function () {
   for(i=0; i < this.users.length; i++){
     if(this.users[i].isActive){
@@ -58,6 +67,15 @@ User.prototype.addList = function(list) {
   }
   list.isActive = true;
   this.lists.push(list);
+};
+
+User.prototype.setActiveList = function (listId) {
+  this.lists.forEach(function(list){
+    list.isActive = false;
+    if (list.listId === listId){
+      list.isActive = true;
+    }
+  })
 };
 
 User.prototype.getActiveList = function () {
@@ -101,9 +119,16 @@ var list2 = new List("portland");
 var list3 = new List("china");
 user3.addList(list1);
 user3.addList(list2);
-console.log(user3.getActiveList());
 user3.addList(list3);
-console.log(user3.getActiveList());
+// console.log(user3.getActiveList());
+// console.log(user3.getActiveList());
+// user3.setActiveList(1);
+// console.log(user3.getActiveList());
+// console.log(wanderList);
+// wanderList.setActiveUser(1);
+// console.log(wanderList.getActiveUser());
+console.log(wanderList);
+
 
 // Create Default Lists
 var baseList = ["Sleeping pad with inflation device if necessary", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kit", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
