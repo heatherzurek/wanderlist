@@ -161,7 +161,7 @@ h6 {
 .bigImg-2-content {
   background-color: white;
   /* height: 900px; */
-  width: 80%;
+  width: 60%;
   color: black;
   opacity: .8;
   margin: 0 auto;
@@ -175,6 +175,10 @@ h6 {
 }
 .bigImg-2-content output {
   width: 100%;
+}
+
+.bigImg-2-content li {
+  padding: 5px 0;
 }
 .bigImg-2-content li:hover {
 background-color: #64a2ac;
@@ -208,6 +212,21 @@ form {
   text-align: center;
 }
 
+#addPersonalItem {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#addItemButton:hover {
+  transform: scale(1.2);
+  background-color: transparent;
+}
+
+.addItemButton {
+  text-align: center;
+}
+
 .hidden {
   /* visibility: hidden; */
   display: none;
@@ -225,6 +244,10 @@ form {
   .bigImg-1 {
     width: 70%;
     margin: 0 auto;
+  }
+
+  .bigImg-2-content {
+    width: 50%;
   }
 }
 
