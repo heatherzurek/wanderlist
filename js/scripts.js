@@ -77,6 +77,29 @@ function checkIsPacked (listObject) {
   }
 }
 
+//buildUserSelection() builds a select list of test users
+function buildUserSelectList(){
+  var myDiv = $(".login-user");
+
+  //Create array of options to be added
+  var array = wanderList.users;
+
+  //Create and append select list
+  var userSelectList = document.createElement("select");
+  userSelectList.id = "userSelect";
+  myDiv.append(userSelectList);
+
+  //Create and append the options
+  for (var i = 0; i < array.length; i++) {
+      var option = document.createElement("option");
+      option.value = array[i].userId;
+      option.text = array[i].userName;
+      userSelectList.append(option);
+  }
+  var preOption = "<option disabled selected value>-- Select User --</option>";
+  $("#userSelect").prepend(preOption);
+}
+
 //attachEventListeners() will control button clicks
 function attachEventListeners() {
   var listItemArray = [];
@@ -160,6 +183,7 @@ function attachEventListeners() {
   })
 
 //name and email submission for sharing the list(s)
+
 $("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
@@ -200,16 +224,43 @@ $("#camperSubmit").click(function() {
     user.lists[0].deleteListItem(itemId);
     displayUserList(user.lists[0]);
   })
-
+  //stop listItem link event propagation
   $(".bigImg-2-content").on("click", "a", function(event){
     event.stopPropagation();
+  })
+
+  //login buttons
+  $("#loginUser").on("click", function(){
+    $(".login-user").removeClass("hidden");
+    $(".login-new-user").addClass("hidden");
+  })
+
+  $("#loginNewUser").on("click", function(){
+    $(".login-new-user").removeClass("hidden");
+    $(".login-user").addClass("hidden");
+  })
+
+  $("#submitUser").on("click", function(){
+    var userId = $("#userSelect").val();
+    wanderList.setActiveUser(parseInt(userId));
+    // console.log(wanderList);
+    $(".login-user").addClass("hidden");
+  })
+
+  $("#submitNewUser").on("click", function(){
+    var newUserName = $("#newUserNameInput").val();
+    var newUser = new User(newUserName);
+    wanderList.addUser(newUser);
+    console.log(wanderList);
+    $(".login-new-user").addClass("hidden");
+
   })
 
 };// end attachEventListeners
 
 //Document.ready start
 $(document).ready(function(){
-
+  buildUserSelectList();
   attachEventListeners();
 
 })//end document.ready

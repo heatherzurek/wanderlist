@@ -22,8 +22,15 @@
         <h2>Get Packing</h2>
       </div>
       <div class="bigImg-login">
-        <button type="button" name="button" class="btn-light ">LogIn</button>
-        <button type="button" name="button" class="btn-light">Sign Up</button>
+        <div class="login-user hidden">
+          <button id="submitUser" class="btn btn-dark" type="button" name="button">Login</button>
+        </div>
+        <div class="login-new-user hidden">
+          <input id="newUserNameInput" type="text" name="newUserName" value="" placeholder="New User Name" required>
+          <button id="submitNewUser" class="btn btn-dark" type="button" name="button">Login New User</button>
+        </div>
+        <button id="loginUser" type="button" name="button" class="btn-light ">LogIn</button>
+        <button id="loginNewUser" type="button" name="button" class="btn-light">Sign Up</button>
       </div>
     </div>
       <div class="box-1">
@@ -85,7 +92,6 @@
             <label for="emailAddressInput" id="emailAddressInputted">Email Address</label>
             <input type="email" class="form-control" id="emailAddressInput" placeholder="name@example.com">
             <button type="button" name="button" id="camperSubmit">Email my list!</button>
-
           </form>
 
         </div>
