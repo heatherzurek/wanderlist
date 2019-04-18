@@ -289,6 +289,10 @@ form {
   margin-left: 20px;
 }
 
+#camperSubmissions li a{
+  color: #1e2731;
+}
+
 @media only screen and (min-width: 900px){
   .bigImg-1 {
     margin: 0 auto;
