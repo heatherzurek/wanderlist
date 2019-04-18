@@ -104,7 +104,7 @@ var defaultLists = [baseList, summerList, fallList, springList, winterList, fore
 // user.addList(mountainList);
 // user.addList(riverList);
 // user.addList(baseList);
-console.log(user);
+// console.log(user);
 
 //ListItem Object and Methods -------//
 function ListItem(itemName) {

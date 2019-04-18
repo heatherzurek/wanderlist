@@ -120,7 +120,6 @@ function attachEventListeners() {
     user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
-    console.log(user);
     displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
@@ -163,10 +162,13 @@ $("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
   var newCamper = new Camper(camperName, camperEmail);
-
+  var emailTag = "<a href='mailto:" + camperEmail + "'>" + camperEmail + "</a>"
   user.lists[0].addCamper(newCamper);
+  $("#camperSubmissions").append("<li>" + camperName + " " + emailTag + "</li>");
+  $("#camperSubmissions").removeClass("hidden");
+  $("#emailAddressInput").val('');
+  $("#emailNameInput").val('');
 });
-
 
 //Login submission function for firebase TODO
   // $("#newUserSubmit").click(function(){
