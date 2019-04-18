@@ -148,7 +148,18 @@ function attachEventListeners() {
     // console.log(user.lists[0].listItems[number].isChecked);
   })
 
-
+//name and email submission for sharing the list(s)
+$("#emailButton").click(function() {
+  var camperEmail = $("#emailAddressInput").val();
+  var camperName = $("#emailNameInput").val();
+  console.log(camperEmail);
+  var newCamper = new Camper(camperName, camperEmail);
+  console.log(newCamper);
+  // user.listName.addCamper(newCamper);
+  // console.log(user);
+  user.lists[0].addCamper(newCamper);
+  console.log(user);
+});
 
 //Login submission function for firebase
   $("#newUserSubmit").click(function(){

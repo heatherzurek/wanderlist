@@ -106,7 +106,7 @@ function ListItem(itemName) {
 }
 
 //Camper Object and Methods ---------//
-function Camper(camperName) {
+function Camper(camperName, camperEmail) {
   this.camperName = camperName,
   this.camperEmail = ""
 }
