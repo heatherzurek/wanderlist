@@ -93,6 +93,8 @@ function attachEventListeners() {
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
     $("#showTripName").text(listNameInput);
+    $("#hideOnClick").addClass("hidden");
+
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
