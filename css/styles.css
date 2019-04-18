@@ -143,9 +143,9 @@ h6 {
   padding: 50px 20px;
   color: #dcd6cd;
   font-weight: 500;
-  width: 70%;
   margin: 0 auto;
   text-align: center;
+  background-color: #00000073;
 }
 
 .bigImg-2-content {
@@ -157,8 +157,6 @@ h6 {
   margin: 0 auto;
   padding: 20px;
   color: black;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
   background-image: linear-gradient(rgba(255,0,0,0) 70%, rgb(204, 183, 103));
 }
 
@@ -324,6 +322,9 @@ form {
 
   .bigImg-2-content li a {
     margin-left: 25px;
+  }
+  .bigImg-1 h1 {
+    font-size:
   }
 }
 
