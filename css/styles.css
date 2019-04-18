@@ -188,11 +188,11 @@ width: 100%;
 display: block;
 }
 
-.bigImg-2-content li:hover > button {
+.bigImg-2-content li:hover > .deleteItem {
   visibility: visible;
 }
 
-li button {
+li .deleteItem {
   visibility: hidden;
 }
 
@@ -226,6 +226,10 @@ form {
   width: 70%;
   margin: 0 auto;
   text-align: center;
+}
+
+#addItemButton {
+  visibility: visible;
 }
 
 #addItemButton:hover {

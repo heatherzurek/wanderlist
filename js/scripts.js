@@ -40,12 +40,26 @@ function buildNewListObject(array){
   return newListObject;
 }
 
+//buildAmzLink() will build a search link based on listItem.itemName
+function buildAmzLink(listItem) {
+  var itemName = listItem.itemName.split(" ");
+  var amazonRef = "https:" +"/"+"/"+ "www.amazon.com" + "/" + "s?k=" + itemName[0];
+
+  for(i=1; i<itemName.length; i++){
+      amazonRef += "+" + itemName[i];
+    }
+    console.log(amazonRef);
+    return amazonRef;
+  }
+
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
 $(".bigImg-2-content output").empty();
   listObject.listItems.forEach(function(listItem) {
-    $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "<button class='deleteItem'>Delete</button></li>");
+    var linkedItem = "<a href='" + buildAmzLink(listItem) + "' target='_blank'>" + listItem.itemName + "</a>";
+    $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + linkedItem + "<button class='deleteItem'>Delete</button></li>");
+    // $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "<button class='deleteItem'>Delete</button></li>");
   })
   checkIsPacked(list);
 }
@@ -171,13 +185,15 @@ function attachEventListeners() {
     displayUserList(user.lists[0]);
   })
 
+  $(".bigImg-2-content").on("click", "a", function(event){
+    event.stopPropagation();
+  })
+
 };// end attachEventListeners
-
-
 
 //Document.ready start
 $(document).ready(function(){
-  attachEventListeners();
 
+  attachEventListeners();
 
 })//end document.ready
