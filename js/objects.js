@@ -18,6 +18,7 @@ function User(userName) {
   this.userId,
   this.currentListId = -1,
   this.currentItemId = -1,
+  this.currentCamperId = -1,
   this.lists = []
 
 }
@@ -36,7 +37,6 @@ function List(listName) {
   this.listName = listName,
   this.listId = 0,
   this.campers = [],
-  this.currentCamperId,
   this.listItems = []
 }
 
@@ -55,8 +55,8 @@ List.prototype.deleteListItem = function(listItemId) {
 }
 
 List.prototype.addCamper = function(camper) {
-  this.currentCamperId ++;
-  camper.camperId = this.currentCamperId;
+  user.currentCamperId ++;
+  camper.camperId = user.currentCamperId;
   this.campers.push(camper);
 };
 
@@ -114,7 +114,8 @@ function ListItem(itemName) {
 }
 
 //Camper Object and Methods ---------//
-function Camper(camperName, camperEmail) {
+function Camper(camperName, camperEmail, camperId) {
   this.camperName = camperName,
-  this.camperEmail = ""
+  this.camperEmail = camperEmail,
+  this.camperId = 0
 }

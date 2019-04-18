@@ -48,7 +48,6 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
-    console.log(amazonRef);
     return amazonRef;
   }
 
@@ -160,16 +159,12 @@ function attachEventListeners() {
   })
 
 //name and email submission for sharing the list(s)
-$("#emailButton").click(function() {
+$("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
-  console.log(camperEmail);
   var newCamper = new Camper(camperName, camperEmail);
-  console.log(newCamper);
-  // user.listName.addCamper(newCamper);
-  // console.log(user);
+
   user.lists[0].addCamper(newCamper);
-  console.log(user);
 });
 
 
