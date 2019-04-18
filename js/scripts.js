@@ -40,16 +40,32 @@ function buildNewListObject(array){
   return newListObject;
 }
 
+//buildAmzLink() will build a search link based on listItem.itemName
+function buildAmzLink(listItem) {
+  var itemName = listItem.itemName.split(" ");
+  var amazonRef = "https:" +"/"+"/"+ "www.amazon.com" + "/" + "s?k=" + itemName[0];
+
+  for(i=1; i<itemName.length; i++){
+      amazonRef += "+" + itemName[i];
+    }
+    console.log(amazonRef);
+    return amazonRef;
+  }
+
 //displayUserList() displays user list on the screen
 function displayUserList(listObject) {
   var list = listObject;
 $(".bigImg-2-content output").empty();
   listObject.listItems.forEach(function(listItem) {
-    $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "</li>");
+    var linkedItem = "<a href='" + buildAmzLink(listItem) + "' target='_blank'>" + listItem.itemName + "</a>";
+    $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + linkedItem + "<button class='deleteItem'>Delete</button></li>");
+    // $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "<button class='deleteItem'>Delete</button></li>");
   })
   checkIsPacked(list);
 }
 
+//checkIsPacked() checks listItem for isChecked and add/removes the
+// .isPacked class accordingly
 function checkIsPacked (listObject) {
   for (i=0; i < listObject.listItems.length; i++ ) {
     var itemId = "#" + listObject.listItems[i].itemId;
@@ -71,14 +87,17 @@ function attachEventListeners() {
     listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
+    var listNameInput = $("#listName").val();
 
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
+    $("#showTripName").text(listNameInput);
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
     $("#listModal").modal('show');
+
   });
 
   //push selected list items into new array and push to user List array
@@ -120,10 +139,6 @@ function attachEventListeners() {
     user.lists[0].addListItem(newListItem);
     displayUserList(user.lists[0]);
     $("#addPersonalItem").val('');
-    //find user's list and add item to that list
-    // console.log(user);
-    // $(".bigImg-2-content output").append("<li>" + userItem + "</li>");
-  //save user inputs and push all previously selected items and user inputs into a new lists ---//
   });
 
   //toggle items as Packed
@@ -137,15 +152,11 @@ function attachEventListeners() {
           break;
         } else {
           user.lists[0].listItems[i].isChecked = false;
-          // console.log("now false");
         }
       }
-
     }
-    // console.log("hello?");
     checkIsPacked(user.lists[0]);
     var number = parseInt(listItemId);
-    // console.log(user.lists[0].listItems[number].isChecked);
   })
 
 //name and email submission for sharing the list(s)
@@ -161,18 +172,19 @@ $("#emailButton").click(function() {
   console.log(user);
 });
 
-//Login submission function for firebase
-  $("#newUserSubmit").click(function(){
-    var userEmail = $("#email-input").val();
-    var userPassword = $("#password-input").val();
-    console.log(userEmail, userPassword);
-    firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // ...
-    });
-  })
+
+//Login submission function for firebase TODO
+  // $("#newUserSubmit").click(function(){
+  //   var userEmail = $("#email-input").val();
+  //   var userPassword = $("#password-input").val();
+  //   console.log(userEmail, userPassword);
+  //   firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
+  //     // Handle Errors here.
+  //     var errorCode = error.code;
+  //     var errorMessage = error.message;
+  //     // ...
+  //   });
+  // })
 
   //#modalGoBack click closes modal without pushing list,
   //and clears modal output div
@@ -181,13 +193,24 @@ $("#emailButton").click(function() {
       $("#listModal output").empty();
     })
   })
+
+  //#deleteListItem click deletes selected item from the users list
+  $(".bigImg-2-content").on("click", ".deleteItem", function(event){
+    var itemId = parseInt(event.target.parentNode.id);
+
+    user.lists[0].deleteListItem(itemId);
+    displayUserList(user.lists[0]);
+  })
+
+  $(".bigImg-2-content").on("click", "a", function(event){
+    event.stopPropagation();
+  })
+
 };// end attachEventListeners
-
-
 
 //Document.ready start
 $(document).ready(function(){
-  attachEventListeners();
 
+  attachEventListeners();
 
 })//end document.ready

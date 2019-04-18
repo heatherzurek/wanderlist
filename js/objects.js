@@ -25,7 +25,7 @@ function User(userName) {
 var user = new User("Herman");
 
 
-User.prototype.addList = function (list) {
+User.prototype.addList = function(list) {
   this.currentListId ++;
   list.listId = this.currentListId;
   this.lists.push(list);
@@ -40,20 +40,28 @@ function List(listName) {
   this.listItems = []
 }
 
-List.prototype.addListItem = function (listItem) {
+List.prototype.addListItem = function(listItem) {
   user.currentItemId ++;
   listItem.itemId = user.currentItemId;
   this.listItems.push(listItem);
 };
 
-List.prototype.addCamper = function (camper) {
+List.prototype.deleteListItem = function(listItemId) {
+  for(i=0; i < this.listItems.length; i++){
+    if(this.listItems[i].itemId === listItemId){
+      this.listItems.splice(i, 1);
+    }
+  }
+}
+
+List.prototype.addCamper = function(camper) {
   this.currentCamperId ++;
   camper.camperId = this.currentCamperId;
   this.campers.push(camper);
 };
 
 // Create Default Lists
-var baseList = ["Sleeping pad with inflation device if necessary", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kid", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
+var baseList = ["Sleeping pad with inflation device if necessary", "Pillow", "Headlamp or Flashlights", "Extra Batteries", "Multi-tool", "Saw or Axe", "Stove and Fuel", "First Aid Kit", "Cook Pots", "Eating Utensils", "Cooking Utensils", "Knife", "Plates or Bowls", "Mug", "Biodegradable Soap", "Trash Bags"];
 var summerList = ["3 Season Tent", "35° Sleeping bag", "Sunshade Tarp", "Sunscreen", "Microfiber towel", "Insect Repellent", "Matches and Firestarters"];
 var fallList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sunscreen", "Waterproof matches and firestarters", "Tarp"]
 var springList = ["3 Season Tent", "0° to 35° Sleeping Bag", "Sleeping bag liner", "Insect Repellent", "Rainfly", "Dry bags or ziplocks", "Rainwear", "Waterproof matches and firestarters"]
