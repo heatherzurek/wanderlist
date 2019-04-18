@@ -48,7 +48,6 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
-    console.log(amazonRef);
     return amazonRef;
   }
 
@@ -123,7 +122,6 @@ function attachEventListeners() {
     user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
-    console.log(user);
     displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
@@ -162,18 +160,17 @@ function attachEventListeners() {
   })
 
 //name and email submission for sharing the list(s)
-$("#emailButton").click(function() {
+$("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
-  console.log(camperEmail);
   var newCamper = new Camper(camperName, camperEmail);
-  console.log(newCamper);
-  // user.listName.addCamper(newCamper);
-  // console.log(user);
+  var emailTag = "<a href='mailto:" + camperEmail + "'>" + camperEmail + "</a>"
   user.lists[0].addCamper(newCamper);
-  console.log(user);
+  $("#camperSubmissions").append("<li>" + camperName + " " + emailTag + "</li>");
+  $("#camperSubmissions").removeClass("hidden");
+  $("#emailAddressInput").val('');
+  $("#emailNameInput").val('');
 });
-
 
 //Login submission function for firebase TODO
   // $("#newUserSubmit").click(function(){

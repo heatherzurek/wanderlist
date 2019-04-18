@@ -76,13 +76,18 @@
         <p>Email them your packing list, or build one specifically for them!</p>
 
         <div class="form-group">
+          <output id="camperSubmissions" class="hidden">
+            You have shared your list with these campers!
+          </output>
           <form>
             <label for="emailNameInput">Fellow Camper's Name</label>
             <input type="text" class="form-control" id="emailNameInput" placeholder="Name">
             <label for="emailAddressInput" id="emailAddressInputted">Email Address</label>
             <input type="email" class="form-control" id="emailAddressInput" placeholder="name@example.com">
-            <button type="button" name="button" class="btn-light" id="emailButton">Email my list!</button>
+            <button type="button" name="button" id="camperSubmit">Email my list!</button>
+
           </form>
+
         </div>
       </div>
 
