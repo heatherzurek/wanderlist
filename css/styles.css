@@ -167,6 +167,7 @@ h6 {
   margin: 0 auto;
   padding: 20px;
   color: black;
+  border-radius: 10px;
   background-image: linear-gradient(rgba(255,0,0,0) 70%, rgb(101, 163, 174));
 }
 
@@ -184,6 +185,15 @@ h6 {
 background-color: #64a2ac;
 transform: scale(1.2);
 width: 100%;
+display: block;
+}
+
+.bigImg-2-content li:hover > button {
+  visibility: visible;
+}
+
+li button {
+  visibility: hidden;
 }
 
 .box-2{
@@ -227,6 +237,13 @@ form {
   text-align: center;
 }
 
+.deleteItem {
+  float: right;
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+
 .hidden {
   /* visibility: hidden; */
   display: none;
@@ -247,7 +264,7 @@ form {
   }
 
   .bigImg-2-content {
-    width: 50%;
+    width: 70%;
   }
 }
 

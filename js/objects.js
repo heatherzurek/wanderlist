@@ -25,7 +25,7 @@ function User(userName) {
 var user = new User("Herman");
 
 
-User.prototype.addList = function (list) {
+User.prototype.addList = function(list) {
   this.currentListId ++;
   list.listId = this.currentListId;
   this.lists.push(list);
@@ -40,13 +40,21 @@ function List(listName) {
   this.listItems = []
 }
 
-List.prototype.addListItem = function (listItem) {
+List.prototype.addListItem = function(listItem) {
   user.currentItemId ++;
   listItem.itemId = user.currentItemId;
   this.listItems.push(listItem);
 };
 
-List.prototype.addCamper = function (camper) {
+List.prototype.deleteListItem = function(listItemId) {
+  for(i=0; i < this.listItems.length; i++){
+    if(this.listItems[i].itemId === listItemId){
+      this.listItems.splice(i, 1);
+    }
+  }
+}
+
+List.prototype.addCamper = function(camper) {
   this.currentCamperId ++;
   camper.camperId = this.currentCamperId;
   this.campers.push(camper);
