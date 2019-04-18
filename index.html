@@ -58,9 +58,9 @@
         </form>
       </div>
       <div class="bigImg-2">
-        <h2>Once you make your list, you can mark items as packed, add additional items, or delete them.</h2>
+        <h2 id="hideOnClick">Once you make your list, you can mark items as packed, add additional items, or delete them.</h2>
         <div class="bigImg-2-content hidden">
-          <h2 id ="showTripName"></h2>
+          <h3 id ="showTripName"></h3>
           <output></output>
           <!-- <div>
             <span id="userPopList"></span>
@@ -82,9 +82,10 @@
           <form>
             <label for="emailNameInput">Fellow Camper's Name</label>
             <input type="text" class="form-control" id="emailNameInput" placeholder="Name">
-            <label for="emailAddressInput">Email Address</label>
+            <label for="emailAddressInput" id="emailAddressInputted">Email Address</label>
             <input type="email" class="form-control" id="emailAddressInput" placeholder="name@example.com">
             <button type="button" name="button" id="camperSubmit">Email my list!</button>
+
           </form>
 
         </div>

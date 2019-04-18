@@ -4,8 +4,8 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #486d97;
-  color: #C8BDC7;
+  background-color: #4c6c8e;
+  color: #dcd6cd;
   height: 100%;
   display: block;
   /* background-image: linear-gradient(#8d8ea5,#143767); */
@@ -86,36 +86,6 @@ h6 {
   list-style: none;
 }
 
-.main-div {
-  width: 25%;
-  margin: 0px auto;
-  margin-top: 150px;
-  padding: 20px;
-}
-
-.main-div input {
-  display: block;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  background-color: #ffffff;
-  padding: 10px;
-  outline: none;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.main-div button {
-  background: #B9CCE4;
-  color: #ffffff;
-  border: 0px;
-  border-radius: 5px;
-}
-
-.main-div button:hover {
-  background-color: #ffffff;
-  color: #B9CCE4;
-}
-
 .bigImg-1, .bigImg-2 {
   position: relative;
   opacity: 0.65;
@@ -126,17 +96,25 @@ h6 {
 }
 
 .bigImg-1 {
-  background-image: url("../img/campappbg.jpg");
+  background-image: url("../img/mtns.jpg");
   height: 100%;
 }
 
 .bigImg-1-content {
   text-align: center;
-  padding: 70px 0;
+  padding: 250px 0;
 }
 
 .bigImg-1-content h1 {
   font-size: 6.5rem;
+  color: #04101f;
+  font-weight: 500;
+
+}
+
+.bigImg-1-content h2 {
+  color: #0a1c31;
+  font-weight: 700;
 }
 
 .bigImg-login {
@@ -149,20 +127,23 @@ h6 {
 
 .box-1 {
   text-align: center;
-  background-color: #486d97;
+  background-color: #4c6c8e;
   padding: 20px;
   color: #c2cedb;
 }
 
 .bigImg-2 {
-  background-image: url("../img/campappbglgt.jpg");
+  opacity: 0.8;
+  background-image: url("../img/mtns1.jpg");
   min-height: 100px;
+
 }
 
 .bigImg-2 h2{
   padding: 50px 20px;
-  color: #163860;
-  width: 80%;
+  color: #dcd6cd;
+  font-weight: 500;
+  width: 70%;
   margin: 0 auto;
   text-align: center;
 }
@@ -178,7 +159,7 @@ h6 {
   color: black;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  background-image: linear-gradient(rgba(255,0,0,0) 70%, rgb(101, 163, 174));
+  background-image: linear-gradient(rgba(255,0,0,0) 70%, rgb(204, 183, 103));
 }
 
 .bigImg-2-content h2 {
@@ -195,11 +176,15 @@ h6 {
 }
 
 .bigImg-2-content li a {
-  color: blue;
+  color: #000000;
   cursor: pointer;
 }
+.bigImg-2-content li a:hover {
+  color: #224775;
+}
+
 .bigImg-2-content li:hover {
-background-color: #64a2ac;
+background-color: #cc9a4b;
 transform: scale(1.2);
 width: 100%;
 display: block;
@@ -227,8 +212,18 @@ li .deleteItem {
   color: #c2cedb;
 }
 
+.box-2 h2 {
+  margin-top: 15px;
+}
+
 #listModal {
   color: #163860
+}
+
+.modal {
+  background-image: url("../img/mtns1.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 form {
@@ -263,6 +258,28 @@ form {
   background-color: transparent;
 }
 
+#emailNameInput {
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#emailAddressInputted {
+  margin-top: 12px;
+}
+
+#emailAddressInput {
+  width: 20%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#emailButton {
+  padding-left: 5px;
+  margin-top: 15px;
+}
+
+
 .addItemButton {
   text-align: center;
 }
@@ -282,19 +299,31 @@ form {
 .isPacked::after {
   content: "✓ Packed";
   font-weight: bold;
-  float: right;
-  color: #306477;
-  margin-right: 20px;
+  color: #224775;
+  margin-left: 20px;
 }
 
 @media only screen and (min-width: 900px){
   .bigImg-1 {
-    width: 70%;
     margin: 0 auto;
   }
 
+
   .bigImg-2-content {
     width: 50%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .bigImg-2-content {
+    width: 100%;
+  }
+  li .deleteItem {
+    margin-right: 75px;
+  }
+
+  .bigImg-2-content li a {
+    margin-left: 25px;
   }
 }
 
