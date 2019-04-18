@@ -87,14 +87,17 @@ function attachEventListeners() {
     listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
+    var listNameInput = $("#listName").val();
 
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
+    $("#showTripName").text(listNameInput);
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
     $("#listModal").modal('show');
+
   });
 
   //push selected list items into new array and push to user List array

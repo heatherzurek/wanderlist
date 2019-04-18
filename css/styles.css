@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background-color: #486d97;
   color: #C8BDC7;
   height: 100%;
@@ -26,6 +26,15 @@ header img {
   top:0;
   z-index: -1;
   margin: 0 auto;
+}
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+
 }
 
 header h1 {
@@ -204,6 +213,12 @@ text-indent: 10%;
 li .deleteItem {
   visibility: hidden;
   margin-right: 45px;
+}
+
+#showTripName {
+  text-align: center;
+  color: #000000;
+  font-weight: bold;
 }
 
 .box-2{
