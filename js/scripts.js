@@ -9,14 +9,14 @@ function buildCheckBoxList(seasonInput, terrainInput){
     for(i=0;i<defaultLists.length;i++){
       if(defaultLists[i].listName === input){
         outPutArray.push(defaultLists[i]);
-      };
-    };
-  })
+      }
+    }
+  });
   outPutArray.forEach(function(list){
     for(j=0; j < list.listItems.length; j++){
       merged.push(list.listItems[j]);
-    };
-  })
+    }
+  });
   return merged;
 }
 
@@ -28,7 +28,7 @@ function displayCheckBoxList(listItemArray) {
     html += "<li><input type='checkbox' name='userList' id='" + listItem.itemId + "' checked='checked'><label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label></li>";
   });
   $("#listModal output").append(html);
-};
+}
 
 function buildNewListObject(array){
   var newListObject = new List();
@@ -36,7 +36,7 @@ function buildNewListObject(array){
 
   array.forEach(function(listItem){
     newListObject.addListItem(listItem);
-  })
+  });
   return newListObject;
 }
 
@@ -48,7 +48,7 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
-    console.log(amazonRef);
+    // console.log(amazonRef);
     return amazonRef;
   }
 
@@ -60,7 +60,7 @@ $(".bigImg-2-content output").empty();
     var linkedItem = "<a href='" + buildAmzLink(listItem) + "' target='_blank'>" + listItem.itemName + "</a>";
     $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + linkedItem + "<button class='deleteItem'>Delete</button></li>");
     // $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "<button class='deleteItem'>Delete</button></li>");
-  })
+  });
   checkIsPacked(list);
 }
 
@@ -87,10 +87,13 @@ function attachEventListeners() {
     listName = $("#listName").val();
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
+    var listNameInput = $("#listName").val();
 
     $("#userListName").text(listName);
     $("#userSeasonSelected").text(seasonSelected);
     $("#userTerrainSelected").text(terrainSelected);
+    $("#showTripName").text(listNameInput);
+    $("#hideOnClick").addClass("hidden");
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
@@ -110,7 +113,7 @@ function attachEventListeners() {
       for (i = 0; i < listItemArray.length; i++) {
         if (id == listItemArray[i].itemId) {
           newArray.push(listItemArray[i]);
-        };
+        }
       }
     });
     newArray.listName = listName;
@@ -124,7 +127,7 @@ function attachEventListeners() {
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
       $("#listModal output").empty();
-    })
+    });
   });
 
   //#addItemButton pushes new item Objects into the users current list
@@ -155,6 +158,19 @@ function attachEventListeners() {
     checkIsPacked(user.lists[0]);
     var number = parseInt(listItemId);
   })
+
+  //name and email submission for sharing the list(s)
+$("#camperSubmit").click(function() {
+  var camperEmail = $("#emailAddressInput").val();
+  var camperName = $("#emailNameInput").val();
+  var newCamper = new Camper(camperName, camperEmail);
+  var emailTag = "<a href='mailto:" + camperEmail + "'>" + camperEmail + "</a>"
+  user.lists[0].addCamper(newCamper);
+  $("#camperSubmissions").append("<li>" + camperName + " " + emailTag + "</li>");
+  $("#camperSubmissions").removeClass("hidden");
+  $("#emailAddressInput").val('');
+  $("#emailNameInput").val('');
+});
 
 //Login submission function for firebase TODO
   // $("#newUserSubmit").click(function(){
