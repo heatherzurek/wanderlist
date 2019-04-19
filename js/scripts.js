@@ -9,14 +9,14 @@ function buildCheckBoxList(seasonInput, terrainInput){
     for(i=0;i<defaultLists.length;i++){
       if(defaultLists[i].listName === input){
         outPutArray.push(defaultLists[i]);
-      };
-    };
-  })
+      }
+    }
+  });
   outPutArray.forEach(function(list){
     for(j=0; j < list.listItems.length; j++){
       merged.push(list.listItems[j]);
-    };
-  })
+    }
+  });
   return merged;
 }
 
@@ -28,7 +28,7 @@ function displayCheckBoxList(listItemArray) {
     html += "<li><input type='checkbox' name='userList' id='" + listItem.itemId + "' checked='checked'><label class='form-check-label' for='" + listItem.itemId + "'>" + listItem.itemName + "</label></li>";
   });
   $("#listModal output").append(html);
-};
+}
 
 function buildNewListObject(array){
   var newListObject = new List();
@@ -36,7 +36,7 @@ function buildNewListObject(array){
 
   array.forEach(function(listItem){
     newListObject.addListItem(listItem);
-  })
+  });
   return newListObject;
 }
 
@@ -48,6 +48,7 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
+
     return amazonRef;
   }
 
@@ -59,7 +60,7 @@ $(".bigImg-2-content output").empty();
     var linkedItem = "<a href='" + buildAmzLink(listItem) + "' target='_blank'>" + listItem.itemName + "</a>";
     $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + linkedItem + "<button class='deleteItem'>Delete</button></li>");
     // $(".bigImg-2-content output").append("<li id='" + listItem.itemId + "'>" + listItem.itemName + "<button class='deleteItem'>Delete</button></li>");
-  })
+  });
   checkIsPacked(list);
 }
 
@@ -113,7 +114,7 @@ function attachEventListeners() {
       for (i = 0; i < listItemArray.length; i++) {
         if (id == listItemArray[i].itemId) {
           newArray.push(listItemArray[i]);
-        };
+        }
       }
     });
     newArray.listName = listName;
@@ -126,7 +127,7 @@ function attachEventListeners() {
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
       $("#listModal output").empty();
-    })
+    });
   });
 
   //#addItemButton pushes new item Objects into the users current list
@@ -158,7 +159,7 @@ function attachEventListeners() {
     var number = parseInt(listItemId);
   })
 
-//name and email submission for sharing the list(s)
+
 $("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
