@@ -21,8 +21,15 @@
         <h2>Get Packing</h2>
       </div>
       <div class="bigImg-login">
-        <button type="button" name="button" class="btn-light ">LogIn</button>
-        <button type="button" name="button" class="btn-light">Sign Up</button>
+        <div class="login-user hidden">
+          <button id="submitUser" class="btn btn-dark" type="button" name="button">Login</button>
+        </div>
+        <div class="login-new-user hidden">
+          <input id="newUserNameInput" type="text" name="newUserName" value="" placeholder="New User Name" required>
+          <button id="submitNewUser" class="btn btn-dark" type="button" name="button">Login New User</button>
+        </div>
+        <button id="loginUser" type="button" name="button" class="btn-light ">LogIn</button>
+        <button id="loginNewUser" type="button" name="button" class="btn-light">Sign Up</button>
       </div>
     </div>
       <div class="box-1">
@@ -60,6 +67,7 @@
         <h2 id="hideOnClick">Once you make your list, you can mark items as packed, add additional items, or delete them.</h2>
         <div class="bigImg-2-content hidden">
           <h3 id="showTripName"></h3>
+
           <output></output>
           <div class="addItemButton">
             <li><input class="form-control form-control-sm" type="text" placeholder="Additional item" id="addPersonalItem"></li>
@@ -70,6 +78,20 @@
       <div class="box-2">
         <h2>Camping With Friends?</h2>
         <p>Email them your packing list, or build one specifically for them!</p>
+
+        <div class="form-group">
+          <output id="camperSubmissions" class="hidden">
+            You have shared your list with these campers!
+          </output>
+          <form>
+            <label for="emailNameInput">Fellow Camper's Name</label>
+            <input type="text" class="form-control" id="emailNameInput" placeholder="Name">
+            <label for="emailAddressInput" id="emailAddressInputted">Email Address</label>
+            <input type="email" class="form-control" id="emailAddressInput" placeholder="name@example.com">
+            <button type="button" name="button" id="camperSubmit">Email my list!</button>
+          </form>
+
+        </div>
       </div>
       <div class="form-group">
 

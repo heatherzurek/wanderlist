@@ -48,7 +48,7 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
-    // console.log(amazonRef);
+
     return amazonRef;
   }
 
@@ -98,6 +98,7 @@ function attachEventListeners() {
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
     $("#listModal").modal('show');
+
   });
 
   //push selected list items into new array and push to user List array
@@ -121,7 +122,6 @@ function attachEventListeners() {
     user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
-    console.log(user);
     displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
@@ -159,7 +159,7 @@ function attachEventListeners() {
     var number = parseInt(listItemId);
   })
 
-  //name and email submission for sharing the list(s)
+
 $("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
