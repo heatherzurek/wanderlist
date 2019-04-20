@@ -89,9 +89,9 @@ function attachEventListeners() {
     var terrainSelected = $("#terrain").val();
     var listNameInput = $("#listName").val();
 
-    $("#userListName").text(listName);
-    $("#userSeasonSelected").text(seasonSelected);
-    $("#userTerrainSelected").text(terrainSelected);
+    // $("#userListName").text(listName);
+    // $("#userSeasonSelected").text(seasonSelected);
+    // $("#userTerrainSelected").text(terrainSelected);
     $("#showTripName").text(listNameInput);
     $("#hideOnClick").addClass("hidden");
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
@@ -104,7 +104,7 @@ function attachEventListeners() {
   $("#selectedItemsSubmit").click(function (event) {
     event.preventDefault();
     var selectedItemIds = [];
-    var newArray = [];
+    var newListArray = [];
 
     $('input[name="userList"]:checked').each(function() {
       selectedItemIds.push(this.id);
@@ -112,17 +112,19 @@ function attachEventListeners() {
       selectedItemIds.forEach(function(id) {
       for (i = 0; i < listItemArray.length; i++) {
         if (id == listItemArray[i].itemId) {
-          newArray.push(listItemArray[i]);
+          newListArray.push(listItemArray[i]);
         }
       }
     });
-    newArray.listName = listName;
+    newListArray.listName = listName;
 
-    user.addList(buildNewListObject(newArray));
+    wanderList.activeUser().addList(buildNewListObject(newListArray));
+    // user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
     console.log(user);
-    displayUserList(user.lists[0]);
+    displayUserList(wanderList.activeList());
+    // displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
@@ -134,29 +136,31 @@ function attachEventListeners() {
   // TODO -- turn items into listItem Objects, push into a list Object
   $("#addItemButton").click(function(event) {
     event.preventDefault();
-    var userItem = $("#addPersonalItem").val();
-    var newListItem = new ListItem(userItem);
-    user.lists[0].addListItem(newListItem);
-    displayUserList(user.lists[0]);
+    var newItemName = $("#addPersonalItem").val();
+    var newItem = new ListItem(newItemName);
+    wanderList.activeList().addListItem(newItem);
+    // user.lists[0].addListItem(newListItem);
+    // displayUserList(user.lists[0]);
+    displayUserList(wanderList.activeList());
     $("#addPersonalItem").val('');
   });
 
   //toggle items as Packed
   $(".bigImg-2").on("click", "li", function(event) {
     var listItemId = $(this).attr("id");
-
-    for (i = 0; i < user.lists[0].listItems.length; i++){
-      if (listItemId == user.lists[0].listItems[i].itemId){
-        if(!user.lists[0].listItems[i].isChecked){
-          user.lists[0].listItems[i].isChecked = true;
+    var activeList = wanderList.activeList();
+    for (i = 0; i < activeList.listItems.length; i++){
+      if (parseInt(listItemId) === activeList.listItems[i].itemId){
+        if(!activeList.listItems[i].isChecked){
+          activeList.listItems[i].isChecked = true;
           break;
         } else {
-          user.lists[0].listItems[i].isChecked = false;
+          activeList.listItems[i].isChecked = false;
         }
       }
     }
-    checkIsPacked(user.lists[0]);
-    var number = parseInt(listItemId);
+    checkIsPacked(activeList);
+    checkIsPacked(wanderList.activeList());
   })
 
   //name and email submission for sharing the list(s)
@@ -165,25 +169,12 @@ $("#camperSubmit").click(function() {
   var camperName = $("#emailNameInput").val();
   var newCamper = new Camper(camperName, camperEmail);
   var emailTag = "<a href='mailto:" + camperEmail + "'>" + camperEmail + "</a>"
-  user.lists[0].addCamper(newCamper);
+  wanderList.activeList().addCamper(newCamper);
   $("#camperSubmissions").append("<li>" + camperName + " " + emailTag + "</li>");
   $("#camperSubmissions").removeClass("hidden");
   $("#emailAddressInput").val('');
   $("#emailNameInput").val('');
 });
-
-//Login submission function for firebase TODO
-  // $("#newUserSubmit").click(function(){
-  //   var userEmail = $("#email-input").val();
-  //   var userPassword = $("#password-input").val();
-  //   console.log(userEmail, userPassword);
-  //   firebase.auth().createUserWithEmailAndPassword(userEmail, userPassword).catch(function(error) {
-  //     // Handle Errors here.
-  //     var errorCode = error.code;
-  //     var errorMessage = error.message;
-  //     // ...
-  //   });
-  // })
 
   //#modalGoBack click closes modal without pushing list,
   //and clears modal output div
@@ -197,8 +188,9 @@ $("#camperSubmit").click(function() {
   $(".bigImg-2-content").on("click", ".deleteItem", function(event){
     var itemId = parseInt(event.target.parentNode.id);
 
-    user.lists[0].deleteListItem(itemId);
-    displayUserList(user.lists[0]);
+    wanderList.activeList().deleteListItem(itemId);
+    // user.lists[0].deleteListItem(itemId);
+    displayUserList(wanderList.activeList());
   })
 
   $(".bigImg-2-content").on("click", "a", function(event){
