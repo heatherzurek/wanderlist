@@ -8,6 +8,10 @@
 
 _{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
 
+## See The WanderList page!
+
+https://duherb/github.io/wanderlist
+
 ## Setup/Installation Requirements
 
 * _URL_
@@ -25,9 +29,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 | User can select items they would like on their custom list | Tent | √ Tent |
 | User can add personal items to the pre-populated list | Sunglasses | Sunglasses is added to the Summer, Desert checklist |
 
-## Known Bugs
 
-_No known bugs, please contact us via the contact form if you find any issues._
 
 ## Support and contact details
 
