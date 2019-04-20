@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-
     <title>WanderList | Get Packing</title>
   </head>
   <body>
@@ -67,11 +66,8 @@
       <div class="bigImg-2">
         <h2 id="hideOnClick">Once you make your list, you can mark items as packed, add additional items, or delete them.</h2>
         <div class="bigImg-2-content hidden">
-          <h3 id ="showTripName"></h3>
+          <h3 id="showTripName"></h3>
           <output></output>
-          <!-- <div>
-            <span id="userPopList"></span>
-          </div> -->
           <div class="addItemButton">
             <li><input class="form-control form-control-sm" type="text" placeholder="Additional item" id="addPersonalItem"></li>
             <li id="addItemButton"><button type="button" name="button" >Add New Item</button></li>
@@ -96,7 +92,20 @@
 
         </div>
       </div>
+      <div class="form-group">
 
+        <form id="camperForm">
+          <output id="camperSubmissions" class="hidden">
+            You have shared your list with these campers!
+          </output>
+          <label for="emailNameInput">Fellow Camper's Name</label>
+          <input type="text" class="form-control" id="emailNameInput" placeholder="Name">
+          <label for="emailAddressInput" id="emailAddressInputted">Email Address</label>
+          <input type="email" class="form-control" id="emailAddressInput" placeholder="name@example.com">
+          <button type="button" name="button" id="camperSubmit">Email my list!</button>
+        </form>
+      </div>
+    </div>
       <!-- Button trigger modal -->
       <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#listModal">
         Launch demo modal
@@ -124,81 +133,5 @@
         </div>
       </div>
 
-<!-- add "add items" form and button -->
-<!-- have to add it into the correct div  -->
-
-
-
-
-
-
-
-
-
-
-    <!-- <header>
-      <h1>WanderList</h1>
-      <h2>Build your list with us</h2>
-      <div class="header-buttons">
-        <button type="button" name="button" class="btn-light ">LogIn</button>
-        <button type="button" name="button" class="btn-light">Start new list</button>
-      </div>
-      <img src="img/campappbg.jpg" alt="Camping scene at night">
-    </header>
-    <section id="welcome">
-    </section>
-    <main>
-      <form id="lists">
-        <div class="form-group">
-          <label for="season">Season</label>
-          <select class="form-control" id="season" >
-            <option value="winterList">Winter</option>
-            <option value="springList">Spring</option>
-            <option value="summerList">Summer</option>
-            <option value="fallList">Fall</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="terrain">Terrain Type</label>
-          <select class="form-control" id="terrain">
-            <option value="mountainList">Mountain</option>
-            <option value="desertList">Desert</option>
-            <option value="forestList">Forest</option>
-            <option value="riverList">River</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="listName">List Name</label>
-          <input type="name" class="form-control" id="listName" placeholder="Enter a name for your list">
-        </div>
-        <button type="button" name="button" id="listMaker">Show Me My List!</button>
-      </form>
-
-      <div class="customList">
-        <form class="prePopLists">
-        <h4>Here is your WanderList!</h4>
-        <h5><span id="userListName"></span></h5>
-        <br>
-        <span id="userSeasonSelected"></span>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" name="prePopList" value="Item One">Item One<span id=""></span>
-          </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" name="prePopList" value="Item Two"><span id="">Item Two</span>
-        </label>
-        </div>
-        <button type="button" name="button" id="selectedItemsList">Save My Lists</button>
-        </form>
-      </div>
-
-      add extra items form -->
-      <!-- <li><input class="form-control form-control-sm" type="text" placeholder="Additional item"></li> -->
-      <!-- <output>
-
-      </output> -->
-    <!-- </main> -->
   </body>
 </html>
