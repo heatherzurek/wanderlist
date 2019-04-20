@@ -6,7 +6,9 @@ function WanderList() {
 
 var wanderList = new WanderList();
 
+
 WanderList.prototype.addUser = function (user) {
+
   this.currentUserId ++;
   user.userId = this.currentUserId;
   for (var i = 0; i < this.users.length; i++) {
@@ -65,6 +67,14 @@ WanderList.prototype.activeList = function () {
   return this.users[activeIndex[0]].lists[activeIndex[1]];
 }
 
+WanderList.prototype.getActiveUser = function() {
+  for(var i = 0; i < this.users.length; i++) {
+    if(this.users[i].isActive) {
+      return this.users[i].userId;
+    }
+  };
+};
+
 //User Object and Methods -----------//
 function User(userName) {
   this.userName = userName,
@@ -73,6 +83,7 @@ function User(userName) {
   this.userId,
   this.currentListId = -1,
   this.currentItemId = -1,
+
   this.lists = [],
   this.isActive = false
 }
@@ -88,11 +99,10 @@ console.log(wanderList.getActiveUserId());
 wanderList.setActiveUser(0);
 console.log(wanderList.getActiveUserId());
 
-
-
 User.prototype.addList = function(list) {
   this.currentListId ++;
   list.listId = this.currentListId;
+
   this.lists.push(list);
   for (var i = 0; i < this.lists.length; i++) {
     if(this.lists[i].isActive) {
@@ -121,6 +131,13 @@ User.prototype.setActiveList = function (listId) {
   }
 }
 
+// User.prototype.getActiveList = function() {
+//   for(var i = 0; i < this.listItems.length; i++) {
+//     if(this.listItems[i].isActive) {
+//       return this.listItems[i].itemId;
+//     };
+// };
+
 //List Object and Methods -----------//
 function List(listName) {
   this.listName = listName,
@@ -142,15 +159,17 @@ List.prototype.addListItem = function(listItem) {
   }
 }
 
+
 List.prototype.deleteListItem = function(listItemId) {
-  for(i=0; i < this.listItems.length; i++){
-    if(this.listItems[i].itemId === listItemId){
+  for(i=0; i < this.listItems.length; i++) {
+    if(this.listItems[i].itemId === listItemId) {
       this.listItems.splice(i, 1);
     }
-  }
-}
+  };
+};
 
 List.prototype.addCamper = function(camper) {
+
   this.currentCamperId ++;
   camper.camperId = this.currentCamperId;
   this.campers.push(camper);
@@ -219,6 +238,7 @@ function ListItem(itemName) {
 
 //Camper Object and Methods ---------//
 function Camper(camperName, camperEmail) {
+
   this.camperName = camperName,
   this.camperEmail = camperEmail,
   this.camperId = 0
