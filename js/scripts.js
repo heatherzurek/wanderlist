@@ -48,7 +48,6 @@ function buildAmzLink(listItem) {
   for(i=1; i<itemName.length; i++){
       amazonRef += "+" + itemName[i];
     }
-    // console.log(amazonRef);
     return amazonRef;
   }
 
@@ -89,15 +88,13 @@ function attachEventListeners() {
     var terrainSelected = $("#terrain").val();
     var listNameInput = $("#listName").val();
 
-    // $("#userListName").text(listName);
-    // $("#userSeasonSelected").text(seasonSelected);
-    // $("#userTerrainSelected").text(terrainSelected);
     $("#showTripName").text(listNameInput);
     $("#hideOnClick").addClass("hidden");
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
     displayCheckBoxList(listItemArray);
     $("#listModal").modal({backdrop: 'static', keyboard:false});
     $("#listModal").modal('show');
+
   });
 
   //push selected list items into new array and push to user List array
@@ -117,14 +114,10 @@ function attachEventListeners() {
       }
     });
     newListArray.listName = listName;
-
     wanderList.activeUser().addList(buildNewListObject(newListArray));
-    // user.addList(buildNewListObject(newArray));
 
     //output list of selected items from user object
-    console.log(user);
     displayUserList(wanderList.activeList());
-    // displayUserList(user.lists[0]);
     $(".bigImg-2-content").removeClass("hidden");
     $("#listModal").modal('hide');
     $("#listModal").on('hidden.bs.modal', function(e){
@@ -163,12 +156,14 @@ function attachEventListeners() {
     checkIsPacked(wanderList.activeList());
   })
 
+
   //name and email submission for sharing the list(s)
 $("#camperSubmit").click(function() {
   var camperEmail = $("#emailAddressInput").val();
   var camperName = $("#emailNameInput").val();
   var newCamper = new Camper(camperName, camperEmail);
   var emailTag = "<a href='mailto:" + camperEmail + "'>" + camperEmail + "</a>"
+
   wanderList.activeList().addCamper(newCamper);
   $("#camperSubmissions").append("<li>" + camperName + " " + emailTag + "</li>");
   $("#camperSubmissions").removeClass("hidden");
