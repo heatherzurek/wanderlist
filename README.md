@@ -2,7 +2,7 @@
 
 #### Camp Packing List App - 4/19/2019
 
-####Packing App for Camping trips, April 18, 2019
+#### Packing App for Camping trips, April 18, 2019
 
 
 #### By **Heather Zurek, Dustin Herboldshimer, Reese Lee**
