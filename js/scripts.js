@@ -87,11 +87,7 @@ function attachEventListeners() {
     var seasonSelected = $("#season").val();
     var terrainSelected = $("#terrain").val();
     var listNameInput = $("#listName").val();
-
-
-    // $("#userListName").text(listName);
-    // $("#userSeasonSelected").text(seasonSelected);
-    // $("#userTerrainSelected").text(terrainSelected);
+    
     $("#showTripName").text(listNameInput);
     $("#hideOnClick").addClass("hidden");
     listItemArray = buildCheckBoxList(seasonSelected, terrainSelected);
@@ -119,7 +115,7 @@ function attachEventListeners() {
     });
     newListArray.listName = listName;
     wanderList.activeUser().addList(buildNewListObject(newListArray));
-    
+
     //output list of selected items from user object
     displayUserList(wanderList.activeList());
     $(".bigImg-2-content").removeClass("hidden");
