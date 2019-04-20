@@ -1,6 +1,6 @@
 # _WanderList_
 
-#### _{Brief description of application}, {Date of current version}_
+#### Camp Packing List App - 4/19/2019
 
 #### By _**Heather Zurek, Dustin Herboldshimer, Reese Lee**_
 
@@ -8,7 +8,7 @@
 
 _{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
 
-## See The WanderList page!
+## See The WanderList Page
 
 https://duherb/github.io/wanderlist
 
@@ -28,8 +28,6 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 | User selects options to create camping checklist for their trip | Summer, Desert | Summer,Desert camping checklist appears |
 | User can select items they would like on their custom list | Tent | √ Tent |
 | User can add personal items to the pre-populated list | Sunglasses | Sunglasses is added to the Summer, Desert checklist |
-
-
 
 ## Support and contact details
 
