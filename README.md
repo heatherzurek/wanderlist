@@ -8,7 +8,7 @@
 
 https://heatherzurek.github.io/wanderlist-camping/
 
-_A web application that allows the user to create pre generated lists and edit them based on their trips needs_
+_A web application that allows the user to create pre generated lists and edit them based on their trips needs. Would like to continue to add on to this apps functionality by adding user authentication and ability to share the custom camping lists with friends._
 
 ## Setup/Installation Requirements
 
@@ -32,7 +32,7 @@ _A web application that allows the user to create pre generated lists and edit t
 
 ## Known Bugs
 
-_No known bugs, please contact us via the contact form if you find any issues._
+_Authentication is non-working, cannot email to multiple users at this moment, please contact us via the contact form if you find any issues._
 
 ## Support and contact details
 
@@ -40,7 +40,7 @@ _If you run into any issues or have questions, ideas or concerns please reach ou
 
 ## Technologies Used
 
-_JavaScript_
+_JavaScript, jQuery, HTML, CSS_
 
 ### License
 
