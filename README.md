@@ -6,6 +6,8 @@
 
 ## Description
 
+https://heatherzurek.github.io/wanderlist-camping/
+
 _A web application that allows the user to create pre generated lists and edit them based on their trips needs_
 
 ## Setup/Installation Requirements
